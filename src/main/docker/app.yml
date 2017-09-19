@@ -1,0 +1,14 @@
+version: '2'
+services:
+    dentistapplication-app:
+        image: dentistapplication
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://dentistapplication-postgresql:5432/dentistApplication
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    dentistapplication-postgresql:
+        extends:
+            file: postgresql.yml
+            service: dentistapplication-postgresql
