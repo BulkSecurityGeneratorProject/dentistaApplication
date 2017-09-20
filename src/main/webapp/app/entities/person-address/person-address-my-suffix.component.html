@@ -1,0 +1,78 @@
+<div>
+    <h2>
+        <span jhiTranslate="dentistApplicationApp.personAddress.home.title">Person Addresses</span>
+        <button class="btn btn-primary float-right jh-create-entity create-person-address-my-suffix" [routerLink]="['/', { outlets: { popup: ['person-address-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="dentistApplicationApp.personAddress.home.createLabel">
+            Create new Person Address
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="personAddresses">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="logradouro"><span jhiTranslate="dentistApplicationApp.personAddress.logradouro">Logradouro</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="address"><span jhiTranslate="dentistApplicationApp.personAddress.address">Address</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="number"><span jhiTranslate="dentistApplicationApp.personAddress.number">Number</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="state"><span jhiTranslate="dentistApplicationApp.personAddress.state">State</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="city"><span jhiTranslate="dentistApplicationApp.personAddress.city">City</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="neighborhood"><span jhiTranslate="dentistApplicationApp.personAddress.neighborhood">Neighborhood</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="complement"><span jhiTranslate="dentistApplicationApp.personAddress.complement">Complement</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="type"><span jhiTranslate="dentistApplicationApp.personAddress.type">Type</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let personAddress of personAddresses ;trackBy: trackId">
+                <td><a [routerLink]="['../person-address-my-suffix', personAddress.id ]">{{personAddress.id}}</a></td>
+                <td>{{personAddress.logradouro}}</td>
+                <td>{{personAddress.address}}</td>
+                <td>{{personAddress.number}}</td>
+                <td jhiTranslate="{{'dentistApplicationApp.BrazilianStates.' + personAddress.state}}">{{personAddress.state}}</td>
+                <td>{{personAddress.city}}</td>
+                <td>{{personAddress.neighborhood}}</td>
+                <td>{{personAddress.complement}}</td>
+                <td jhiTranslate="{{'dentistApplicationApp.LogradouroType.' + personAddress.type}}">{{personAddress.type}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../person-address-my-suffix', personAddress.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'person-address-my-suffix/'+ personAddress.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'person-address-my-suffix/'+ personAddress.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="personAddresses && personAddresses.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

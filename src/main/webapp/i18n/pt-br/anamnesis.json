@@ -1,0 +1,21 @@
+{
+    "dentistApplicationApp": {
+        "anamnesis" : {
+            "home": {
+                "title": "Anamneses",
+                "createLabel": "Criar novo Anamnesis",
+                "createOrEditLabel": "Criar ou editar Anamnesis"
+            },
+            "created": "Um novo Anamnesis foi criado com o identificador {{ param }}",
+            "updated": "Um Anamnesis foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Anamnesis foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Anamnesis {{ id }}?"
+            },
+            "detail": {
+                "title": "Anamnesis"
+            },
+            "description": "Description"
+        }
+    }
+}

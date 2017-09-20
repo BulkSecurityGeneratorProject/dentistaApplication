@@ -1,0 +1,28 @@
+{
+    "dentistApplicationApp": {
+        "personAddress" : {
+            "home": {
+                "title": "Person Addresses",
+                "createLabel": "Create a new Person Address",
+                "createOrEditLabel": "Create or edit a Person Address"
+            },
+            "created": "A new Person Address is created with identifier {{ param }}",
+            "updated": "A Person Address is updated with identifier {{ param }}",
+            "deleted": "A Person Address is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Person Address {{ id }}?"
+            },
+            "detail": {
+                "title": "Person Address"
+            },
+            "logradouro": "Logradouro",
+            "address": "Address",
+            "number": "Number",
+            "state": "State",
+            "city": "City",
+            "neighborhood": "Neighborhood",
+            "complement": "Complement",
+            "type": "Type"
+        }
+    }
+}

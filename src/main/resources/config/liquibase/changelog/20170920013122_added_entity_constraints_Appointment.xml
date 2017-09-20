@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Appointment.
+    -->
+    <changeSet id="20170920013122-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="payment_method_id"
+                                 baseTableName="appointment"
+                                 constraintName="fk_appointment_payment_method_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="payment_method"/>
+
+        <addForeignKeyConstraint baseColumnNames="financial_move_id"
+                                 baseTableName="appointment"
+                                 constraintName="fk_appointment_financial_move_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="financial_move"/>
+
+        <addForeignKeyConstraint baseColumnNames="appointment_id"
+                                 baseTableName="appointment"
+                                 constraintName="fk_appointment_appointment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="appointment_item"/>
+
+    </changeSet>
+</databaseChangeLog>

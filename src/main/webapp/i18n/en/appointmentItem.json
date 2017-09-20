@@ -1,0 +1,21 @@
+{
+    "dentistApplicationApp": {
+        "appointmentItem" : {
+            "home": {
+                "title": "Appointment Items",
+                "createLabel": "Create a new Appointment Item",
+                "createOrEditLabel": "Create or edit a Appointment Item"
+            },
+            "created": "A new Appointment Item is created with identifier {{ param }}",
+            "updated": "A Appointment Item is updated with identifier {{ param }}",
+            "deleted": "A Appointment Item is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Appointment Item {{ id }}?"
+            },
+            "detail": {
+                "title": "Appointment Item"
+            },
+            "item": "Item"
+        }
+    }
+}

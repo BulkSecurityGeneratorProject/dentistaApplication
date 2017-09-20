@@ -1,0 +1,25 @@
+
+<div *ngIf="paymentMethod">
+    <h2><span jhiTranslate="dentistApplicationApp.paymentMethod.detail.title">Payment Method</span> {{paymentMethod.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dentistApplicationApp.paymentMethod.name">Name</span></dt>
+        <dd>
+            <span>{{paymentMethod.name}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'payment-method-my-suffix/'+ paymentMethod.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

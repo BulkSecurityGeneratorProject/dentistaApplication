@@ -1,0 +1,23 @@
+{
+    "dentistApplicationApp": {
+        "procedure" : {
+            "home": {
+                "title": "Procedures",
+                "createLabel": "Criar novo Procedure",
+                "createOrEditLabel": "Criar ou editar Procedure"
+            },
+            "created": "Um novo Procedure foi criado com o identificador {{ param }}",
+            "updated": "Um Procedure foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Procedure foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Procedure {{ id }}?"
+            },
+            "detail": {
+                "title": "Procedure"
+            },
+            "description": "Description",
+            "value": "Value",
+            "procedure": "Procedure"
+        }
+    }
+}
