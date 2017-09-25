@@ -21,6 +21,7 @@
             <th jhiSortBy="currentBalance"><span jhiTranslate="dentistApplicationApp.financialMove.currentBalance">Current Balance</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="moveDate"><span jhiTranslate="dentistApplicationApp.financialMove.moveDate">Move Date</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="observation"><span jhiTranslate="dentistApplicationApp.financialMove.observation">Observation</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="appointmentId"><span jhiTranslate="dentistApplicationApp.financialMove.appointment">Appointment</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -31,6 +32,11 @@
                 <td>{{financialMove.currentBalance}}</td>
                 <td>{{financialMove.moveDate | date:'medium'}}</td>
                 <td>{{financialMove.observation}}</td>
+                <td>
+                    <div *ngIf="financialMove.appointmentId">
+                        <a [routerLink]="['../appointment-my-suffix', financialMove.appointmentId  ]" >{{financialMove.appointmentId}}</a>
+                    </div>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

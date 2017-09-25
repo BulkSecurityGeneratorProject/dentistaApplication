@@ -5,6 +5,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 import java.util.Objects;
 
@@ -23,17 +24,21 @@ public class FinancialMove implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "previou_balance")
-    private Double previouBalance;
+    @Column(name = "previou_balance", precision=10, scale=2)
+    private BigDecimal previouBalance;
 
-    @Column(name = "current_balance")
-    private Double currentBalance;
+    @Column(name = "current_balance", precision=10, scale=2)
+    private BigDecimal currentBalance;
 
     @Column(name = "move_date")
     private ZonedDateTime moveDate;
 
     @Column(name = "observation")
     private String observation;
+
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Appointment appointment;
 
     // jhipster-needle-entity-add-field - Jhipster will add fields here, do not remove
     public Long getId() {
@@ -44,29 +49,29 @@ public class FinancialMove implements Serializable {
         this.id = id;
     }
 
-    public Double getPreviouBalance() {
+    public BigDecimal getPreviouBalance() {
         return previouBalance;
     }
 
-    public FinancialMove previouBalance(Double previouBalance) {
+    public FinancialMove previouBalance(BigDecimal previouBalance) {
         this.previouBalance = previouBalance;
         return this;
     }
 
-    public void setPreviouBalance(Double previouBalance) {
+    public void setPreviouBalance(BigDecimal previouBalance) {
         this.previouBalance = previouBalance;
     }
 
-    public Double getCurrentBalance() {
+    public BigDecimal getCurrentBalance() {
         return currentBalance;
     }
 
-    public FinancialMove currentBalance(Double currentBalance) {
+    public FinancialMove currentBalance(BigDecimal currentBalance) {
         this.currentBalance = currentBalance;
         return this;
     }
 
-    public void setCurrentBalance(Double currentBalance) {
+    public void setCurrentBalance(BigDecimal currentBalance) {
         this.currentBalance = currentBalance;
     }
 
@@ -94,6 +99,19 @@ public class FinancialMove implements Serializable {
 
     public void setObservation(String observation) {
         this.observation = observation;
+    }
+
+    public Appointment getAppointment() {
+        return appointment;
+    }
+
+    public FinancialMove appointment(Appointment appointment) {
+        this.appointment = appointment;
+        return this;
+    }
+
+    public void setAppointment(Appointment appointment) {
+        this.appointment = appointment;
     }
     // jhipster-needle-entity-add-getters-setters - Jhipster will add getters and setters here, do not remove
 

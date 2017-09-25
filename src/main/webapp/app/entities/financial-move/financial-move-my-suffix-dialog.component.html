@@ -35,6 +35,13 @@
                 [(ngModel)]="financialMove.observation"  />
         </div>
 
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dentistApplicationApp.financialMove.appointment" for="field_appointment">Appointment</label>
+            <select class="form-control" id="field_appointment" name="appointment" [(ngModel)]="financialMove.appointmentId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="appointmentOption.id" *ngFor="let appointmentOption of appointments; trackBy: trackAppointmentById">{{appointmentOption.id}}</option>
+            </select>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

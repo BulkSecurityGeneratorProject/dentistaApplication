@@ -18,6 +18,8 @@
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="item"><span jhiTranslate="dentistApplicationApp.appointmentItem.item">Item</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="appointmentId"><span jhiTranslate="dentistApplicationApp.appointmentItem.appointment">Appointment</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="procedureId"><span jhiTranslate="dentistApplicationApp.appointmentItem.procedure">Procedure</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -25,6 +27,16 @@
             <tr *ngFor="let appointmentItem of appointmentItems ;trackBy: trackId">
                 <td><a [routerLink]="['../appointment-item-my-suffix', appointmentItem.id ]">{{appointmentItem.id}}</a></td>
                 <td>{{appointmentItem.item}}</td>
+                <td>
+                    <div *ngIf="appointmentItem.appointmentId">
+                        <a [routerLink]="['../appointment-my-suffix', appointmentItem.appointmentId  ]" >{{appointmentItem.appointmentId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="appointmentItem.procedureId">
+                        <a [routerLink]="['../procedure-my-suffix', appointmentItem.procedureId  ]" >{{appointmentItem.procedureId}}</a>
+                    </div>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

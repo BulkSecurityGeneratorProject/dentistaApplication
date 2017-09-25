@@ -66,41 +66,6 @@
                 [(ngModel)]="person.isPatient"  />
         </div>
 
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="dentistApplicationApp.person.anamnesis" for="field_anamnesis">Anamnesis</label>
-            <select class="form-control" id="field_anamnesis" name="anamnesis" [(ngModel)]="person.anamnesisId">
-                <option [ngValue]="null"></option>
-                <option [ngValue]="anamnesisOption.id" *ngFor="let anamnesisOption of anamneses; trackBy: trackAnamnesisById">{{anamnesisOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="dentistApplicationApp.person.dentist" for="field_dentist">Dentist</label>
-            <select class="form-control" id="field_dentist" name="dentist" [(ngModel)]="person.dentistId" >
-                <option [ngValue]="null"></option>
-                <option [ngValue]="appointmentOption.id" *ngFor="let appointmentOption of appointments; trackBy: trackAppointmentById">{{appointmentOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="dentistApplicationApp.person.patient" for="field_patient">Patient</label>
-            <select class="form-control" id="field_patient" name="patient" [(ngModel)]="person.patientId" >
-                <option [ngValue]="null"></option>
-                <option [ngValue]="appointmentOption.id" *ngFor="let appointmentOption of appointments; trackBy: trackAppointmentById">{{appointmentOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="dentistApplicationApp.person.employee" for="field_employee">Employee</label>
-            <select class="form-control" id="field_employee" name="employee" [(ngModel)]="person.employeeId" >
-                <option [ngValue]="null"></option>
-                <option [ngValue]="appointmentOption.id" *ngFor="let appointmentOption of appointments; trackBy: trackAppointmentById">{{appointmentOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="dentistApplicationApp.person.person" for="field_person">Person</label>
-            <select class="form-control" id="field_person" name="person" [(ngModel)]="person.personId" >
-                <option [ngValue]="null"></option>
-                <option [ngValue]="personAddressOption.id" *ngFor="let personAddressOption of personaddresses; trackBy: trackPersonAddressById">{{personAddressOption.id}}</option>
-            </select>
-        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

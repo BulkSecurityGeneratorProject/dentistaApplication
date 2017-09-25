@@ -52,22 +52,6 @@ public class Person implements Serializable {
     @Column(name = "is_patient")
     private Boolean isPatient;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Anamnesis anamnesis;
-
-    @ManyToOne
-    private Appointment dentist;
-
-    @ManyToOne
-    private Appointment patient;
-
-    @ManyToOne
-    private Appointment employee;
-
-    @ManyToOne
-    private PersonAddress person;
-
     // jhipster-needle-entity-add-field - Jhipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -192,71 +176,6 @@ public class Person implements Serializable {
 
     public void setIsPatient(Boolean isPatient) {
         this.isPatient = isPatient;
-    }
-
-    public Anamnesis getAnamnesis() {
-        return anamnesis;
-    }
-
-    public Person anamnesis(Anamnesis anamnesis) {
-        this.anamnesis = anamnesis;
-        return this;
-    }
-
-    public void setAnamnesis(Anamnesis anamnesis) {
-        this.anamnesis = anamnesis;
-    }
-
-    public Appointment getDentist() {
-        return dentist;
-    }
-
-    public Person dentist(Appointment appointment) {
-        this.dentist = appointment;
-        return this;
-    }
-
-    public void setDentist(Appointment appointment) {
-        this.dentist = appointment;
-    }
-
-    public Appointment getPatient() {
-        return patient;
-    }
-
-    public Person patient(Appointment appointment) {
-        this.patient = appointment;
-        return this;
-    }
-
-    public void setPatient(Appointment appointment) {
-        this.patient = appointment;
-    }
-
-    public Appointment getEmployee() {
-        return employee;
-    }
-
-    public Person employee(Appointment appointment) {
-        this.employee = appointment;
-        return this;
-    }
-
-    public void setEmployee(Appointment appointment) {
-        this.employee = appointment;
-    }
-
-    public PersonAddress getPerson() {
-        return person;
-    }
-
-    public Person person(PersonAddress personAddress) {
-        this.person = personAddress;
-        return this;
-    }
-
-    public void setPerson(PersonAddress personAddress) {
-        this.person = personAddress;
     }
     // jhipster-needle-entity-add-getters-setters - Jhipster will add getters and setters here, do not remove
 

@@ -10,8 +10,7 @@ import { AppointmentMySuffix } from './appointment-my-suffix.model';
 import { AppointmentMySuffixPopupService } from './appointment-my-suffix-popup.service';
 import { AppointmentMySuffixService } from './appointment-my-suffix.service';
 import { PaymentMethodMySuffix, PaymentMethodMySuffixService } from '../payment-method';
-import { FinancialMoveMySuffix, FinancialMoveMySuffixService } from '../financial-move';
-import { AppointmentItemMySuffix, AppointmentItemMySuffixService } from '../appointment-item';
+import { PersonMySuffix, PersonMySuffixService } from '../person';
 import { ResponseWrapper } from '../../shared';
 
 @Component({
@@ -25,17 +24,14 @@ export class AppointmentMySuffixDialogComponent implements OnInit {
 
     paymentmethods: PaymentMethodMySuffix[];
 
-    financialmoves: FinancialMoveMySuffix[];
-
-    appointmentitems: AppointmentItemMySuffix[];
+    people: PersonMySuffix[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private alertService: JhiAlertService,
         private appointmentService: AppointmentMySuffixService,
         private paymentMethodService: PaymentMethodMySuffixService,
-        private financialMoveService: FinancialMoveMySuffixService,
-        private appointmentItemService: AppointmentItemMySuffixService,
+        private personService: PersonMySuffixService,
         private eventManager: JhiEventManager
     ) {
     }
@@ -55,21 +51,8 @@ export class AppointmentMySuffixDialogComponent implements OnInit {
                         }, (subRes: ResponseWrapper) => this.onError(subRes.json));
                 }
             }, (res: ResponseWrapper) => this.onError(res.json));
-        this.financialMoveService
-            .query({filter: 'appointment-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.appointment.financialMoveId) {
-                    this.financialmoves = res.json;
-                } else {
-                    this.financialMoveService
-                        .find(this.appointment.financialMoveId)
-                        .subscribe((subRes: FinancialMoveMySuffix) => {
-                            this.financialmoves = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
-        this.appointmentItemService.query()
-            .subscribe((res: ResponseWrapper) => { this.appointmentitems = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        this.personService.query()
+            .subscribe((res: ResponseWrapper) => { this.people = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -110,11 +93,7 @@ export class AppointmentMySuffixDialogComponent implements OnInit {
         return item.id;
     }
 
-    trackFinancialMoveById(index: number, item: FinancialMoveMySuffix) {
-        return item.id;
-    }
-
-    trackAppointmentItemById(index: number, item: AppointmentItemMySuffix) {
+    trackPersonById(index: number, item: PersonMySuffix) {
         return item.id;
     }
 }

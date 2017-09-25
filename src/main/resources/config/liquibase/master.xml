@@ -5,6 +5,7 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+
     <include file="config/liquibase/changelog/20170920013120_added_entity_Person.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20170920013121_added_entity_PersonAddress.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20170920013122_added_entity_Appointment.xml" relativeToChangelogFile="false"/>
@@ -12,10 +13,14 @@
     <include file="config/liquibase/changelog/20170920013124_added_entity_Procedure.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20170920013125_added_entity_PaymentMethod.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20170920013126_added_entity_Anamnesis.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20170920013127_added_entity_FinancialMove.xml" relativeToChangelogFile="false"/>
-    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
-    <include file="config/liquibase/changelog/20170920013120_added_entity_constraints_Person.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170922023622_changelog.xml" relativeToChangelogFile="false"/>
+
+    <include file="config/liquibase/changelog/20170920013121_added_entity_constraints_PersonAddress.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20170920013122_added_entity_constraints_Appointment.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20170920013124_added_entity_constraints_Procedure.xml" relativeToChangelogFile="false"/>
-    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+    <include file="config/liquibase/changelog/20170920013123_added_entity_constraints_AppointmentItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170920013126_added_entity_constraints_Anamnesis.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170920013127_added_entity_constraints_FinancialMove.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170920013127_added_entity_FinancialMove.xml" relativeToChangelogFile="false"/>
+
+
 </databaseChangeLog>

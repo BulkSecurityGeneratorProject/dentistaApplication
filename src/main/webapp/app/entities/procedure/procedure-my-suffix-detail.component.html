@@ -12,12 +12,6 @@
         <dd>
             <span>{{procedure.value}}</span>
         </dd>
-        <dt><span jhiTranslate="dentistApplicationApp.procedure.procedure">Procedure</span></dt>
-        <dd>
-            <div *ngIf="procedure.procedureId">
-                <a [routerLink]="['/appointment-item-my-suffix', procedure.procedureId]">{{procedure.procedureId}}</a>
-            </div>
-        </dd>
     </dl>
 
     <button type="submit"

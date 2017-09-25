@@ -15,7 +15,8 @@
             "detail": {
                 "title": "Anamnesis"
             },
-            "description": "Description"
+            "description": "Description",
+            "patient": "Patient"
         }
     }
 }

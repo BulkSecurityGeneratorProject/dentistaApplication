@@ -26,11 +26,6 @@
             <th jhiSortBy="isEmployee"><span jhiTranslate="dentistApplicationApp.person.isEmployee">Is Employee</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="isDentist"><span jhiTranslate="dentistApplicationApp.person.isDentist">Is Dentist</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="isPatient"><span jhiTranslate="dentistApplicationApp.person.isPatient">Is Patient</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="anamnesisId"><span jhiTranslate="dentistApplicationApp.person.anamnesis">Anamnesis</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dentistId"><span jhiTranslate="dentistApplicationApp.person.dentist">Dentist</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="patientId"><span jhiTranslate="dentistApplicationApp.person.patient">Patient</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="employeeId"><span jhiTranslate="dentistApplicationApp.person.employee">Employee</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="personId"><span jhiTranslate="dentistApplicationApp.person.person">Person</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -46,31 +41,6 @@
                 <td>{{person.isEmployee}}</td>
                 <td>{{person.isDentist}}</td>
                 <td>{{person.isPatient}}</td>
-                <td>
-                    <div *ngIf="person.anamnesisId">
-                        <a [routerLink]="['../anamnesis-my-suffix', person.anamnesisId  ]" >{{person.anamnesisId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="person.dentistId">
-                        <a [routerLink]="['../appointment-my-suffix', person.dentistId  ]" >{{person.dentistId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="person.patientId">
-                        <a [routerLink]="['../appointment-my-suffix', person.patientId  ]" >{{person.patientId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="person.employeeId">
-                        <a [routerLink]="['../appointment-my-suffix', person.employeeId  ]" >{{person.employeeId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="person.personId">
-                        <a [routerLink]="['../person-address-my-suffix', person.personId  ]" >{{person.personId}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

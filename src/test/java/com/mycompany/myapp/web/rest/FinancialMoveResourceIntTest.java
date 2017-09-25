@@ -24,6 +24,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.time.ZoneOffset;
@@ -45,11 +46,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = DentistApplicationApp.class)
 public class FinancialMoveResourceIntTest {
 
-    private static final Double DEFAULT_PREVIOU_BALANCE = 1D;
-    private static final Double UPDATED_PREVIOU_BALANCE = 2D;
+    private static final BigDecimal DEFAULT_PREVIOU_BALANCE = new BigDecimal(1);
+    private static final BigDecimal UPDATED_PREVIOU_BALANCE = new BigDecimal(2);
 
-    private static final Double DEFAULT_CURRENT_BALANCE = 1D;
-    private static final Double UPDATED_CURRENT_BALANCE = 2D;
+    private static final BigDecimal DEFAULT_CURRENT_BALANCE = new BigDecimal(1);
+    private static final BigDecimal UPDATED_CURRENT_BALANCE = new BigDecimal(2);
 
     private static final ZonedDateTime DEFAULT_MOVE_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_MOVE_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
@@ -165,8 +166,8 @@ public class FinancialMoveResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(financialMove.getId().intValue())))
-            .andExpect(jsonPath("$.[*].previouBalance").value(hasItem(DEFAULT_PREVIOU_BALANCE.doubleValue())))
-            .andExpect(jsonPath("$.[*].currentBalance").value(hasItem(DEFAULT_CURRENT_BALANCE.doubleValue())))
+            .andExpect(jsonPath("$.[*].previouBalance").value(hasItem(DEFAULT_PREVIOU_BALANCE.intValue())))
+            .andExpect(jsonPath("$.[*].currentBalance").value(hasItem(DEFAULT_CURRENT_BALANCE.intValue())))
             .andExpect(jsonPath("$.[*].moveDate").value(hasItem(sameInstant(DEFAULT_MOVE_DATE))))
             .andExpect(jsonPath("$.[*].observation").value(hasItem(DEFAULT_OBSERVATION.toString())));
     }
@@ -182,8 +183,8 @@ public class FinancialMoveResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(financialMove.getId().intValue()))
-            .andExpect(jsonPath("$.previouBalance").value(DEFAULT_PREVIOU_BALANCE.doubleValue()))
-            .andExpect(jsonPath("$.currentBalance").value(DEFAULT_CURRENT_BALANCE.doubleValue()))
+            .andExpect(jsonPath("$.previouBalance").value(DEFAULT_PREVIOU_BALANCE.intValue()))
+            .andExpect(jsonPath("$.currentBalance").value(DEFAULT_CURRENT_BALANCE.intValue()))
             .andExpect(jsonPath("$.moveDate").value(sameInstant(DEFAULT_MOVE_DATE)))
             .andExpect(jsonPath("$.observation").value(DEFAULT_OBSERVATION.toString()));
     }

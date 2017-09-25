@@ -9,6 +9,9 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { AppointmentItemMySuffix } from './appointment-item-my-suffix.model';
 import { AppointmentItemMySuffixPopupService } from './appointment-item-my-suffix-popup.service';
 import { AppointmentItemMySuffixService } from './appointment-item-my-suffix.service';
+import { AppointmentMySuffix, AppointmentMySuffixService } from '../appointment';
+import { ProcedureMySuffix, ProcedureMySuffixService } from '../procedure';
+import { ResponseWrapper } from '../../shared';
 
 @Component({
     selector: 'jhi-appointment-item-my-suffix-dialog',
@@ -19,16 +22,26 @@ export class AppointmentItemMySuffixDialogComponent implements OnInit {
     appointmentItem: AppointmentItemMySuffix;
     isSaving: boolean;
 
+    appointments: AppointmentMySuffix[];
+
+    procedures: ProcedureMySuffix[];
+
     constructor(
         public activeModal: NgbActiveModal,
         private alertService: JhiAlertService,
         private appointmentItemService: AppointmentItemMySuffixService,
+        private appointmentService: AppointmentMySuffixService,
+        private procedureService: ProcedureMySuffixService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
+        this.appointmentService.query()
+            .subscribe((res: ResponseWrapper) => { this.appointments = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        this.procedureService.query()
+            .subscribe((res: ResponseWrapper) => { this.procedures = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -63,6 +76,14 @@ export class AppointmentItemMySuffixDialogComponent implements OnInit {
 
     private onError(error: any) {
         this.alertService.error(error.message, null, null);
+    }
+
+    trackAppointmentById(index: number, item: AppointmentMySuffix) {
+        return item.id;
+    }
+
+    trackProcedureById(index: number, item: ProcedureMySuffix) {
+        return item.id;
     }
 }
 

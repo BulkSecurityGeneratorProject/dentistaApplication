@@ -2,6 +2,8 @@ package com.mycompany.myapp.service.dto;
 
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 import com.mycompany.myapp.domain.enumeration.BrazilianStates;
 import com.mycompany.myapp.domain.enumeration.LogradouroType;
@@ -28,6 +30,8 @@ public class PersonAddressDTO implements Serializable {
     private String complement;
 
     private LogradouroType type;
+
+    private Long personId;
 
     public Long getId() {
         return id;
@@ -99,6 +103,14 @@ public class PersonAddressDTO implements Serializable {
 
     public void setType(LogradouroType type) {
         this.type = type;
+    }
+
+    public Long getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(Long personId) {
+        this.personId = personId;
     }
 
     @Override

@@ -8,6 +8,18 @@
         <dd>
             <span>{{appointmentItem.item}}</span>
         </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.appointmentItem.appointment">Appointment</span></dt>
+        <dd>
+            <div *ngIf="appointmentItem.appointmentId">
+                <a [routerLink]="['/appointment-my-suffix', appointmentItem.appointmentId]">{{appointmentItem.appointmentId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.appointmentItem.procedure.description">Procedure</span></dt>
+        <dd>
+            <div *ngIf="appointmentItem.procedureId">
+                <a [routerLink]="['/procedure-my-suffix', appointmentItem.procedureId]">{{appointmentItem.procedureId}}</a>
+            </div>
+        </dd>
     </dl>
 
     <button type="submit"

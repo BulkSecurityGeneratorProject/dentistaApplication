@@ -18,6 +18,20 @@
                 [(ngModel)]="appointmentItem.item"  />
         </div>
 
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dentistApplicationApp.appointmentItem.appointment" for="field_appointment">Appointment</label>
+            <select class="form-control" id="field_appointment" name="appointment" [(ngModel)]="appointmentItem.appointmentId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="appointmentOption.id" *ngFor="let appointmentOption of appointments; trackBy: trackAppointmentById">{{appointmentOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dentistApplicationApp.appointmentItem.procedure" for="field_procedure">Procedure</label>
+            <select class="form-control" id="field_procedure" name="procedure" [(ngModel)]="appointmentItem.procedureId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="procedureOption.id" *ngFor="let procedureOption of procedures; trackBy: trackProcedureById">{{procedureOption.id}}</option>
+            </select>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

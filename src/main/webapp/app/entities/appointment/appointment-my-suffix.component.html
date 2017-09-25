@@ -19,8 +19,9 @@
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="appointmentDate"><span jhiTranslate="dentistApplicationApp.appointment.appointmentDate">Appointment Date</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="paymentMethodId"><span jhiTranslate="dentistApplicationApp.appointment.paymentMethod">Payment Method</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="financialMoveId"><span jhiTranslate="dentistApplicationApp.appointment.financialMove">Financial Move</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="appointmentId"><span jhiTranslate="dentistApplicationApp.appointment.appointment">Appointment</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dentistId"><span jhiTranslate="dentistApplicationApp.appointment.dentist">Dentist</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="patientId"><span jhiTranslate="dentistApplicationApp.appointment.patient">Patient</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="employeeId"><span jhiTranslate="dentistApplicationApp.appointment.employee">Employee</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -34,13 +35,18 @@
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="appointment.financialMoveId">
-                        <a [routerLink]="['../financial-move-my-suffix', appointment.financialMoveId  ]" >{{appointment.financialMoveId}}</a>
+                    <div *ngIf="appointment.dentistId">
+                        <a [routerLink]="['../person-my-suffix', appointment.dentistId  ]" >{{appointment.dentistId}}</a>
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="appointment.appointmentId">
-                        <a [routerLink]="['../appointment-item-my-suffix', appointment.appointmentId  ]" >{{appointment.appointmentId}}</a>
+                    <div *ngIf="appointment.patientId">
+                        <a [routerLink]="['../person-my-suffix', appointment.patientId  ]" >{{appointment.patientId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="appointment.employeeId">
+                        <a [routerLink]="['../person-my-suffix', appointment.employeeId  ]" >{{appointment.employeeId}}</a>
                     </div>
                 </td>
                 <td class="text-right">

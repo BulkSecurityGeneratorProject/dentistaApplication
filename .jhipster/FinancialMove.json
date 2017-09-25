@@ -1,0 +1,37 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "appointment",
+            "otherEntityName": "appointment",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "financialMove"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "previouBalance",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "currentBalance",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "moveDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "observation",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170920013127",
+    "entityTableName": "financial_move",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "angularJSSuffix": "mySuffix"
+}

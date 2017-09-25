@@ -9,10 +9,6 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { PersonMySuffix } from './person-my-suffix.model';
 import { PersonMySuffixPopupService } from './person-my-suffix-popup.service';
 import { PersonMySuffixService } from './person-my-suffix.service';
-import { AnamnesisMySuffix, AnamnesisMySuffixService } from '../anamnesis';
-import { AppointmentMySuffix, AppointmentMySuffixService } from '../appointment';
-import { PersonAddressMySuffix, PersonAddressMySuffixService } from '../person-address';
-import { ResponseWrapper } from '../../shared';
 
 @Component({
     selector: 'jhi-person-my-suffix-dialog',
@@ -23,42 +19,16 @@ export class PersonMySuffixDialogComponent implements OnInit {
     person: PersonMySuffix;
     isSaving: boolean;
 
-    anamneses: AnamnesisMySuffix[];
-
-    appointments: AppointmentMySuffix[];
-
-    personaddresses: PersonAddressMySuffix[];
-
     constructor(
         public activeModal: NgbActiveModal,
         private alertService: JhiAlertService,
         private personService: PersonMySuffixService,
-        private anamnesisService: AnamnesisMySuffixService,
-        private appointmentService: AppointmentMySuffixService,
-        private personAddressService: PersonAddressMySuffixService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
-        this.anamnesisService
-            .query({filter: 'person-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.person.anamnesisId) {
-                    this.anamneses = res.json;
-                } else {
-                    this.anamnesisService
-                        .find(this.person.anamnesisId)
-                        .subscribe((subRes: AnamnesisMySuffix) => {
-                            this.anamneses = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
-        this.appointmentService.query()
-            .subscribe((res: ResponseWrapper) => { this.appointments = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
-        this.personAddressService.query()
-            .subscribe((res: ResponseWrapper) => { this.personaddresses = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -93,18 +63,6 @@ export class PersonMySuffixDialogComponent implements OnInit {
 
     private onError(error: any) {
         this.alertService.error(error.message, null, null);
-    }
-
-    trackAnamnesisById(index: number, item: AnamnesisMySuffix) {
-        return item.id;
-    }
-
-    trackAppointmentById(index: number, item: AppointmentMySuffix) {
-        return item.id;
-    }
-
-    trackPersonAddressById(index: number, item: PersonAddressMySuffix) {
-        return item.id;
     }
 }
 

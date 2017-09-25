@@ -25,6 +25,12 @@ public class AppointmentItem implements Serializable {
     @Column(name = "item")
     private String item;
 
+    @ManyToOne
+    private Appointment appointment;
+
+    @ManyToOne
+    private Procedure procedure;
+
     // jhipster-needle-entity-add-field - Jhipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -45,6 +51,32 @@ public class AppointmentItem implements Serializable {
 
     public void setItem(String item) {
         this.item = item;
+    }
+
+    public Appointment getAppointment() {
+        return appointment;
+    }
+
+    public AppointmentItem appointment(Appointment appointment) {
+        this.appointment = appointment;
+        return this;
+    }
+
+    public void setAppointment(Appointment appointment) {
+        this.appointment = appointment;
+    }
+
+    public Procedure getProcedure() {
+        return procedure;
+    }
+
+    public AppointmentItem procedure(Procedure procedure) {
+        this.procedure = procedure;
+        return this;
+    }
+
+    public void setProcedure(Procedure procedure) {
+        this.procedure = procedure;
     }
     // jhipster-needle-entity-add-getters-setters - Jhipster will add getters and setters here, do not remove
 

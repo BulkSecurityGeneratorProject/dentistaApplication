@@ -18,6 +18,13 @@
                 [(ngModel)]="anamnesis.description"  />
         </div>
 
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dentistApplicationApp.anamnesis.patient" for="field_patient">Patient</label>
+            <select class="form-control" id="field_patient" name="patient" [(ngModel)]="anamnesis.patientId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="personOption.id" *ngFor="let personOption of patients; trackBy: trackPersonById">{{personOption.id}}</option>
+            </select>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

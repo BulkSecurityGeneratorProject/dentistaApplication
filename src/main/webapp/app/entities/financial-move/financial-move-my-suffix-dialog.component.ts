@@ -9,6 +9,8 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { FinancialMoveMySuffix } from './financial-move-my-suffix.model';
 import { FinancialMoveMySuffixPopupService } from './financial-move-my-suffix-popup.service';
 import { FinancialMoveMySuffixService } from './financial-move-my-suffix.service';
+import { AppointmentMySuffix, AppointmentMySuffixService } from '../appointment';
+import { ResponseWrapper } from '../../shared';
 
 @Component({
     selector: 'jhi-financial-move-my-suffix-dialog',
@@ -19,16 +21,32 @@ export class FinancialMoveMySuffixDialogComponent implements OnInit {
     financialMove: FinancialMoveMySuffix;
     isSaving: boolean;
 
+    appointments: AppointmentMySuffix[];
+
     constructor(
         public activeModal: NgbActiveModal,
         private alertService: JhiAlertService,
         private financialMoveService: FinancialMoveMySuffixService,
+        private appointmentService: AppointmentMySuffixService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
+        this.appointmentService
+            .query({filter: 'financialmove-is-null'})
+            .subscribe((res: ResponseWrapper) => {
+                if (!this.financialMove.appointmentId) {
+                    this.appointments = res.json;
+                } else {
+                    this.appointmentService
+                        .find(this.financialMove.appointmentId)
+                        .subscribe((subRes: AppointmentMySuffix) => {
+                            this.appointments = [subRes].concat(res.json);
+                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
+                }
+            }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -63,6 +81,10 @@ export class FinancialMoveMySuffixDialogComponent implements OnInit {
 
     private onError(error: any) {
         this.alertService.error(error.message, null, null);
+    }
+
+    trackAppointmentById(index: number, item: AppointmentMySuffix) {
+        return item.id;
     }
 }
 

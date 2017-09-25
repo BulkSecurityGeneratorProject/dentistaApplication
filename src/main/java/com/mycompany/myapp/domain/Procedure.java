@@ -5,6 +5,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -25,11 +26,8 @@ public class Procedure implements Serializable {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "jhi_value")
-    private Double value;
-
-    @ManyToOne
-    private AppointmentItem procedure;
+    @Column(name = "jhi_value", precision=10, scale=2)
+    private BigDecimal value;
 
     // jhipster-needle-entity-add-field - Jhipster will add fields here, do not remove
     public Long getId() {
@@ -53,30 +51,17 @@ public class Procedure implements Serializable {
         this.description = description;
     }
 
-    public Double getValue() {
+    public BigDecimal getValue() {
         return value;
     }
 
-    public Procedure value(Double value) {
+    public Procedure value(BigDecimal value) {
         this.value = value;
         return this;
     }
 
-    public void setValue(Double value) {
+    public void setValue(BigDecimal value) {
         this.value = value;
-    }
-
-    public AppointmentItem getProcedure() {
-        return procedure;
-    }
-
-    public Procedure procedure(AppointmentItem appointmentItem) {
-        this.procedure = appointmentItem;
-        return this;
-    }
-
-    public void setProcedure(AppointmentItem appointmentItem) {
-        this.procedure = appointmentItem;
     }
     // jhipster-needle-entity-add-getters-setters - Jhipster will add getters and setters here, do not remove
 

@@ -5,7 +5,6 @@ export class ProcedureMySuffix implements BaseEntity {
         public id?: number,
         public description?: string,
         public value?: number,
-        public procedureId?: number,
     ) {
     }
 }

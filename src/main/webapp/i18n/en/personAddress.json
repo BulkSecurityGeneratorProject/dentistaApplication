@@ -22,7 +22,8 @@
             "city": "City",
             "neighborhood": "Neighborhood",
             "complement": "Complement",
-            "type": "Type"
+            "type": "Type",
+            "person": "Person"
         }
     }
 }

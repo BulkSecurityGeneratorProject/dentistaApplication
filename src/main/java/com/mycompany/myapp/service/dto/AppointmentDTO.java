@@ -18,9 +18,11 @@ public class AppointmentDTO implements Serializable {
 
     private Long paymentMethodId;
 
-    private Long financialMoveId;
+    private Long dentistId;
 
-    private Long appointmentId;
+    private Long patientId;
+
+    private Long employeeId;
 
     public Long getId() {
         return id;
@@ -46,20 +48,28 @@ public class AppointmentDTO implements Serializable {
         this.paymentMethodId = paymentMethodId;
     }
 
-    public Long getFinancialMoveId() {
-        return financialMoveId;
+    public Long getDentistId() {
+        return dentistId;
     }
 
-    public void setFinancialMoveId(Long financialMoveId) {
-        this.financialMoveId = financialMoveId;
+    public void setDentistId(Long personId) {
+        this.dentistId = personId;
     }
 
-    public Long getAppointmentId() {
-        return appointmentId;
+    public Long getPatientId() {
+        return patientId;
     }
 
-    public void setAppointmentId(Long appointmentItemId) {
-        this.appointmentId = appointmentItemId;
+    public void setPatientId(Long personId) {
+        this.patientId = personId;
+    }
+
+    public Long getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(Long personId) {
+        this.employeeId = personId;
     }
 
     @Override

@@ -19,7 +19,6 @@
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="description"><span jhiTranslate="dentistApplicationApp.procedure.description">Description</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="value"><span jhiTranslate="dentistApplicationApp.procedure.value">Value</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="procedureId"><span jhiTranslate="dentistApplicationApp.procedure.procedure">Procedure</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -28,11 +27,6 @@
                 <td><a [routerLink]="['../procedure-my-suffix', procedure.id ]">{{procedure.id}}</a></td>
                 <td>{{procedure.description}}</td>
                 <td>{{procedure.value}}</td>
-                <td>
-                    <div *ngIf="procedure.procedureId">
-                        <a [routerLink]="['../appointment-item-my-suffix', procedure.procedureId  ]" >{{procedure.procedureId}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

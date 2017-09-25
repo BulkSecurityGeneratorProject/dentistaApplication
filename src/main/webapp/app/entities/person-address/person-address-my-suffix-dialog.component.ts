@@ -9,6 +9,8 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { PersonAddressMySuffix } from './person-address-my-suffix.model';
 import { PersonAddressMySuffixPopupService } from './person-address-my-suffix-popup.service';
 import { PersonAddressMySuffixService } from './person-address-my-suffix.service';
+import { PersonMySuffix, PersonMySuffixService } from '../person';
+import { ResponseWrapper } from '../../shared';
 
 @Component({
     selector: 'jhi-person-address-my-suffix-dialog',
@@ -19,16 +21,21 @@ export class PersonAddressMySuffixDialogComponent implements OnInit {
     personAddress: PersonAddressMySuffix;
     isSaving: boolean;
 
+    people: PersonMySuffix[];
+
     constructor(
         public activeModal: NgbActiveModal,
         private alertService: JhiAlertService,
         private personAddressService: PersonAddressMySuffixService,
+        private personService: PersonMySuffixService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
+        this.personService.query()
+            .subscribe((res: ResponseWrapper) => { this.people = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -63,6 +70,10 @@ export class PersonAddressMySuffixDialogComponent implements OnInit {
 
     private onError(error: any) {
         this.alertService.error(error.message, null, null);
+    }
+
+    trackPersonById(index: number, item: PersonMySuffix) {
+        return item.id;
     }
 }
 

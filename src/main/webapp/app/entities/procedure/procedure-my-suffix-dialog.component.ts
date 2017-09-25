@@ -9,8 +9,6 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { ProcedureMySuffix } from './procedure-my-suffix.model';
 import { ProcedureMySuffixPopupService } from './procedure-my-suffix-popup.service';
 import { ProcedureMySuffixService } from './procedure-my-suffix.service';
-import { AppointmentItemMySuffix, AppointmentItemMySuffixService } from '../appointment-item';
-import { ResponseWrapper } from '../../shared';
 
 @Component({
     selector: 'jhi-procedure-my-suffix-dialog',
@@ -21,21 +19,16 @@ export class ProcedureMySuffixDialogComponent implements OnInit {
     procedure: ProcedureMySuffix;
     isSaving: boolean;
 
-    appointmentitems: AppointmentItemMySuffix[];
-
     constructor(
         public activeModal: NgbActiveModal,
         private alertService: JhiAlertService,
         private procedureService: ProcedureMySuffixService,
-        private appointmentItemService: AppointmentItemMySuffixService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
-        this.appointmentItemService.query()
-            .subscribe((res: ResponseWrapper) => { this.appointmentitems = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -70,10 +63,6 @@ export class ProcedureMySuffixDialogComponent implements OnInit {
 
     private onError(error: any) {
         this.alertService.error(error.message, null, null);
-    }
-
-    trackAppointmentItemById(index: number, item: AppointmentItemMySuffix) {
-        return item.id;
     }
 }
 

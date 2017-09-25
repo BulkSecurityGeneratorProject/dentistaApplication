@@ -1,0 +1,53 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "person",
+            "otherEntityName": "person",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "logradouro",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "number",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "state",
+            "fieldType": "BrazilianStates",
+            "fieldValues": "AC,AL,AM,AP,BA,CE,DF,ES,GO,MA,MG,MS,MT,PA,PB,PE,PI,PR,RJ,RN,RO,RR,RS,SC,SE,SP,TO"
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "neighborhood",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "complement",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "LogradouroType",
+            "fieldValues": "COMMERCIAL,PERSONAL"
+        }
+    ],
+    "changelogDate": "20170920013121",
+    "entityTableName": "person_address",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "angularJSSuffix": "mySuffix"
+}

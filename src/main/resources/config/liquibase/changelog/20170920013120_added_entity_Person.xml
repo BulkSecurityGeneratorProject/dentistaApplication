@@ -56,24 +56,6 @@
             <column name="is_patient" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="anamnesis_id" type="bigint">
-                <constraints unique="true" nullable="true" />
-            </column>
-            <column name="dentist_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="patient_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="employee_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="person_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>

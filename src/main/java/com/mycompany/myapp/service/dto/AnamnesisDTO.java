@@ -2,6 +2,8 @@ package com.mycompany.myapp.service.dto;
 
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -12,6 +14,8 @@ public class AnamnesisDTO implements Serializable {
     private Long id;
 
     private String description;
+
+    private Long patientId;
 
     public Long getId() {
         return id;
@@ -27,6 +31,14 @@ public class AnamnesisDTO implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Long getPatientId() {
+        return patientId;
+    }
+
+    public void setPatientId(Long personId) {
+        this.patientId = personId;
     }
 
     @Override

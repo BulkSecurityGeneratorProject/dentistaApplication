@@ -7,6 +7,7 @@ export class FinancialMoveMySuffix implements BaseEntity {
         public currentBalance?: number,
         public moveDate?: any,
         public observation?: string,
+        public appointmentId?: number,
     ) {
     }
 }

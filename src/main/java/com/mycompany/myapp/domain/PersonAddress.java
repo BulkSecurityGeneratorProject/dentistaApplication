@@ -52,6 +52,9 @@ public class PersonAddress implements Serializable {
     @Column(name = "jhi_type")
     private LogradouroType type;
 
+    @ManyToOne
+    private Person person;
+
     // jhipster-needle-entity-add-field - Jhipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -163,6 +166,19 @@ public class PersonAddress implements Serializable {
 
     public void setType(LogradouroType type) {
         this.type = type;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public PersonAddress person(Person person) {
+        this.person = person;
+        return this;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
     }
     // jhipster-needle-entity-add-getters-setters - Jhipster will add getters and setters here, do not remove
 

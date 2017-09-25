@@ -30,12 +30,14 @@ public class Appointment implements Serializable {
     @JoinColumn(unique = true)
     private PaymentMethod paymentMethod;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private FinancialMove financialMove;
+    @ManyToOne
+    private Person dentist;
 
     @ManyToOne
-    private AppointmentItem appointment;
+    private Person patient;
+
+    @ManyToOne
+    private Person employee;
 
     // jhipster-needle-entity-add-field - Jhipster will add fields here, do not remove
     public Long getId() {
@@ -72,30 +74,43 @@ public class Appointment implements Serializable {
         this.paymentMethod = paymentMethod;
     }
 
-    public FinancialMove getFinancialMove() {
-        return financialMove;
+    public Person getDentist() {
+        return dentist;
     }
 
-    public Appointment financialMove(FinancialMove financialMove) {
-        this.financialMove = financialMove;
+    public Appointment dentist(Person person) {
+        this.dentist = person;
         return this;
     }
 
-    public void setFinancialMove(FinancialMove financialMove) {
-        this.financialMove = financialMove;
+    public void setDentist(Person person) {
+        this.dentist = person;
     }
 
-    public AppointmentItem getAppointment() {
-        return appointment;
+    public Person getPatient() {
+        return patient;
     }
 
-    public Appointment appointment(AppointmentItem appointmentItem) {
-        this.appointment = appointmentItem;
+    public Appointment patient(Person person) {
+        this.patient = person;
         return this;
     }
 
-    public void setAppointment(AppointmentItem appointmentItem) {
-        this.appointment = appointmentItem;
+    public void setPatient(Person person) {
+        this.patient = person;
+    }
+
+    public Person getEmployee() {
+        return employee;
+    }
+
+    public Appointment employee(Person person) {
+        this.employee = person;
+        return this;
+    }
+
+    public void setEmployee(Person person) {
+        this.employee = person;
     }
     // jhipster-needle-entity-add-getters-setters - Jhipster will add getters and setters here, do not remove
 

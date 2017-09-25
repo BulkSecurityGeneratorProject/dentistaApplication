@@ -1,0 +1,230 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Guilherme (generated)" id="1506047803540-1">
+        <createSequence sequenceName="hibernate_sequence"/>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-2">
+        <createTable tableName="anamnesis">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="anamnesisPK"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="patient_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-3">
+        <createTable tableName="appointment">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="appointmentPK"/>
+            </column>
+            <column name="appointment_date" type="BINARY(255)"/>
+            <column name="dentist_id" type="BIGINT"/>
+            <column name="employee_id" type="BIGINT"/>
+            <column name="patient_id" type="BIGINT"/>
+            <column name="payment_method_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-4">
+        <createTable tableName="appointment_item">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="appointment_itemPK"/>
+            </column>
+            <column name="item" type="VARCHAR(255)"/>
+            <column name="appointment_id" type="BIGINT"/>
+            <column name="procedure_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-5">
+        <createTable tableName="financial_move">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="financial_movePK"/>
+            </column>
+            <column name="current_balance" type="DECIMAL(10, 2)"/>
+            <column name="move_date" type="BINARY(255)"/>
+            <column name="observation" type="VARCHAR(255)"/>
+            <column name="previou_balance" type="DECIMAL(10, 2)"/>
+            <column name="appointment_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-6">
+        <createTable tableName="jhi_authority">
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-7">
+        <createTable tableName="jhi_persistent_audit_event">
+            <column autoIncrement="true" name="event_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="jhi_persistent_audit_eventPK"/>
+            </column>
+            <column name="event_date" type="BINARY(255)"/>
+            <column name="event_type" type="VARCHAR(255)"/>
+            <column name="principal" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-8">
+        <createTable tableName="jhi_persistent_audit_evt_data">
+            <column name="event_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-9">
+        <createTable tableName="jhi_user">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="jhi_userPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="BINARY(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="BINARY(255)"/>
+            <column name="activated" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="activation_key" type="VARCHAR(20)"/>
+            <column name="email" type="VARCHAR(100)"/>
+            <column name="first_name" type="VARCHAR(50)"/>
+            <column name="image_url" type="VARCHAR(256)"/>
+            <column name="lang_key" type="VARCHAR(5)"/>
+            <column name="last_name" type="VARCHAR(50)"/>
+            <column name="login" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password_hash" type="VARCHAR(60)"/>
+            <column name="reset_date" type="BINARY(255)"/>
+            <column name="reset_key" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-10">
+        <createTable tableName="jhi_user_authority">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authority_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-11">
+        <createTable tableName="payment_method">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="payment_methodPK"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-12">
+        <createTable tableName="person">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="personPK"/>
+            </column>
+            <column name="cpf" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="full_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hire_date" type="BINARY(255)"/>
+            <column name="is_dentist" type="BOOLEAN"/>
+            <column name="is_employee" type="BOOLEAN"/>
+            <column name="is_patient" type="BOOLEAN"/>
+            <column name="phone_1" type="VARCHAR(255)"/>
+            <column name="phone_2" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-13">
+        <createTable tableName="person_address">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="person_addressPK"/>
+            </column>
+            <column name="address" type="VARCHAR(255)"/>
+            <column name="city" type="VARCHAR(255)"/>
+            <column name="complement" type="VARCHAR(255)"/>
+            <column name="logradouro" type="VARCHAR(255)"/>
+            <column name="neighborhood" type="VARCHAR(255)"/>
+            <column name="jhi_number" type="VARCHAR(255)"/>
+            <column name="state" type="VARCHAR(255)"/>
+            <column name="jhi_type" type="VARCHAR(255)"/>
+            <column name="person_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-14">
+        <createTable tableName="procedure">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="procedurePK"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="jhi_value" type="DECIMAL(10, 2)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-15">
+        <addPrimaryKey columnNames="event_id, name" tableName="jhi_persistent_audit_evt_data"/>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-16">
+        <addPrimaryKey columnNames="user_id, authority_name" tableName="jhi_user_authority"/>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-17">
+        <addPrimaryKey columnNames="name" constraintName="jhi_authorityPK" tableName="jhi_authority"/>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-18">
+        <addUniqueConstraint columnNames="patient_id" constraintName="UC_ANAMNESISPATIENT_ID_COL" tableName="anamnesis"/>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-19">
+        <addUniqueConstraint columnNames="payment_method_id" constraintName="UC_APPOINTMENTPAYMENT_METHOD_ID_COL" tableName="appointment"/>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-20">
+        <addUniqueConstraint columnNames="appointment_id" constraintName="UC_FINANCIAL_MOVEAPPOINTMENT_ID_COL" tableName="financial_move"/>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-21">
+        <addUniqueConstraint columnNames="email" constraintName="UC_JHI_USEREMAIL_COL" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-22">
+        <addUniqueConstraint columnNames="login" constraintName="UC_JHI_USERLOGIN_COL" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-23">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="jhi_user_authority" constraintName="FK290okww5jujghp4el5i7mgwu0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-24">
+        <addForeignKeyConstraint baseColumnNames="event_id" baseTableName="jhi_persistent_audit_evt_data" constraintName="FK2ehnyx2si4tjd2nt4q7y40v8m" deferrable="false" initiallyDeferred="false" referencedColumnNames="event_id" referencedTableName="jhi_persistent_audit_event"/>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-25">
+        <addForeignKeyConstraint baseColumnNames="appointment_id" baseTableName="financial_move" constraintName="FK3epa9an75fj2kqg205q8aschi" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="appointment"/>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-26">
+        <addForeignKeyConstraint baseColumnNames="authority_name" baseTableName="jhi_user_authority" constraintName="FK4psxl0jtx6nr7rhqbynr6itoc" deferrable="false" initiallyDeferred="false" referencedColumnNames="name" referencedTableName="jhi_authority"/>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-27">
+        <addForeignKeyConstraint baseColumnNames="dentist_id" baseTableName="appointment" constraintName="FK57f6ajbb2r6fsgamn3r8lk4d6" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="person"/>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-28">
+        <addForeignKeyConstraint baseColumnNames="payment_method_id" baseTableName="appointment" constraintName="FKadmjgtofg3eyw33h78afnmj0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="payment_method"/>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-29">
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="appointment" constraintName="FKet3j9n9rcienfvvmaqfqqngaa" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="person"/>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-30">
+        <addForeignKeyConstraint baseColumnNames="patient_id" baseTableName="anamnesis" constraintName="FKhttmoixy80pib0ocditj1q250" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="person"/>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-31">
+        <addForeignKeyConstraint baseColumnNames="appointment_id" baseTableName="appointment_item" constraintName="FKjbir9naaf2bksqtlrfd9j6pos" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="appointment"/>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-32">
+        <addForeignKeyConstraint baseColumnNames="procedure_id" baseTableName="appointment_item" constraintName="FKl8beinunhd131i442wwbbeufa" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="procedure"/>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-33">
+        <addForeignKeyConstraint baseColumnNames="patient_id" baseTableName="appointment" constraintName="FKmmxs22iaprgef5urqdt6wna6n" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="person"/>
+    </changeSet>
+    <changeSet author="Guilherme (generated)" id="1506047803540-34">
+        <addForeignKeyConstraint baseColumnNames="person_id" baseTableName="person_address" constraintName="FKnndfs0btabect8upo03uwgfxt" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="person"/>
+    </changeSet>
+</databaseChangeLog>

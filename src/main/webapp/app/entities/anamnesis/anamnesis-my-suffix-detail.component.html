@@ -8,6 +8,12 @@
         <dd>
             <span>{{anamnesis.description}}</span>
         </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.anamnesis.patient">Patient</span></dt>
+        <dd>
+            <div *ngIf="anamnesis.patientId">
+                <a [routerLink]="['/person-my-suffix', anamnesis.patientId]">{{anamnesis.patientId}}</a>
+            </div>
+        </dd>
     </dl>
 
     <button type="submit"

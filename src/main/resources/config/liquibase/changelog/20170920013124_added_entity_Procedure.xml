@@ -25,11 +25,7 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="jhi_value" type="double">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="procedure_id" type="bigint">
+            <column name="jhi_value" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
 

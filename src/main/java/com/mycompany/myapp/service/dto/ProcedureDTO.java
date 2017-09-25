@@ -2,8 +2,7 @@ package com.mycompany.myapp.service.dto;
 
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -15,9 +14,7 @@ public class ProcedureDTO implements Serializable {
 
     private String description;
 
-    private Double value;
-
-    private Long procedureId;
+    private BigDecimal value;
 
     public Long getId() {
         return id;
@@ -35,20 +32,12 @@ public class ProcedureDTO implements Serializable {
         this.description = description;
     }
 
-    public Double getValue() {
+    public BigDecimal getValue() {
         return value;
     }
 
-    public void setValue(Double value) {
+    public void setValue(BigDecimal value) {
         this.value = value;
-    }
-
-    public Long getProcedureId() {
-        return procedureId;
-    }
-
-    public void setProcedureId(Long appointmentItemId) {
-        this.procedureId = appointmentItemId;
     }
 
     @Override

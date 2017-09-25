@@ -36,6 +36,12 @@
         <dd>
             <span jhiTranslate="{{'dentistApplicationApp.LogradouroType.' + personAddress.type}}">{{personAddress.type}}</span>
         </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.personAddress.person">Person</span></dt>
+        <dd>
+            <div *ngIf="personAddress.personId">
+                <a [routerLink]="['/person-my-suffix', personAddress.personId]">{{personAddress.personId}}</a>
+            </div>
+        </dd>
     </dl>
 
     <button type="submit"

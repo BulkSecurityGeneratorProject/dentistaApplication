@@ -14,17 +14,23 @@
                                  referencedColumnNames="id"
                                  referencedTableName="payment_method"/>
 
-        <addForeignKeyConstraint baseColumnNames="financial_move_id"
+        <addForeignKeyConstraint baseColumnNames="dentist_id"
                                  baseTableName="appointment"
-                                 constraintName="fk_appointment_financial_move_id"
+                                 constraintName="fk_appointment_dentist_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="financial_move"/>
+                                 referencedTableName="person"/>
 
-        <addForeignKeyConstraint baseColumnNames="appointment_id"
+        <addForeignKeyConstraint baseColumnNames="patient_id"
                                  baseTableName="appointment"
-                                 constraintName="fk_appointment_appointment_id"
+                                 constraintName="fk_appointment_patient_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="appointment_item"/>
+                                 referencedTableName="person"/>
+
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="appointment"
+                                 constraintName="fk_appointment_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="person"/>
 
     </changeSet>
 </databaseChangeLog>

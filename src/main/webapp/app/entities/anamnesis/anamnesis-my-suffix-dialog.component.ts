@@ -9,6 +9,8 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { AnamnesisMySuffix } from './anamnesis-my-suffix.model';
 import { AnamnesisMySuffixPopupService } from './anamnesis-my-suffix-popup.service';
 import { AnamnesisMySuffixService } from './anamnesis-my-suffix.service';
+import { PersonMySuffix, PersonMySuffixService } from '../person';
+import { ResponseWrapper } from '../../shared';
 
 @Component({
     selector: 'jhi-anamnesis-my-suffix-dialog',
@@ -19,16 +21,32 @@ export class AnamnesisMySuffixDialogComponent implements OnInit {
     anamnesis: AnamnesisMySuffix;
     isSaving: boolean;
 
+    patients: PersonMySuffix[];
+
     constructor(
         public activeModal: NgbActiveModal,
         private alertService: JhiAlertService,
         private anamnesisService: AnamnesisMySuffixService,
+        private personService: PersonMySuffixService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
+        this.personService
+            .query({filter: 'anamnesis-is-null'})
+            .subscribe((res: ResponseWrapper) => {
+                if (!this.anamnesis.patientId) {
+                    this.patients = res.json;
+                } else {
+                    this.personService
+                        .find(this.anamnesis.patientId)
+                        .subscribe((subRes: PersonMySuffix) => {
+                            this.patients = [subRes].concat(res.json);
+                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
+                }
+            }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -63,6 +81,10 @@ export class AnamnesisMySuffixDialogComponent implements OnInit {
 
     private onError(error: any) {
         this.alertService.error(error.message, null, null);
+    }
+
+    trackPersonById(index: number, item: PersonMySuffix) {
+        return item.id;
     }
 }
 

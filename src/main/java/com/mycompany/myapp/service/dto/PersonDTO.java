@@ -4,8 +4,6 @@ package com.mycompany.myapp.service.dto;
 import java.time.ZonedDateTime;
 import javax.validation.constraints.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -33,16 +31,6 @@ public class PersonDTO implements Serializable {
     private Boolean isDentist;
 
     private Boolean isPatient;
-
-    private Long anamnesisId;
-
-    private Long dentistId;
-
-    private Long patientId;
-
-    private Long employeeId;
-
-    private Long personId;
 
     public Long getId() {
         return id;
@@ -122,46 +110,6 @@ public class PersonDTO implements Serializable {
 
     public void setIsPatient(Boolean isPatient) {
         this.isPatient = isPatient;
-    }
-
-    public Long getAnamnesisId() {
-        return anamnesisId;
-    }
-
-    public void setAnamnesisId(Long anamnesisId) {
-        this.anamnesisId = anamnesisId;
-    }
-
-    public Long getDentistId() {
-        return dentistId;
-    }
-
-    public void setDentistId(Long appointmentId) {
-        this.dentistId = appointmentId;
-    }
-
-    public Long getPatientId() {
-        return patientId;
-    }
-
-    public void setPatientId(Long appointmentId) {
-        this.patientId = appointmentId;
-    }
-
-    public Long getEmployeeId() {
-        return employeeId;
-    }
-
-    public void setEmployeeId(Long appointmentId) {
-        this.employeeId = appointmentId;
-    }
-
-    public Long getPersonId() {
-        return personId;
-    }
-
-    public void setPersonId(Long personAddressId) {
-        this.personId = personAddressId;
     }
 
     @Override

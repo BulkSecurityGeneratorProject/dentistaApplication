@@ -20,6 +20,12 @@
         <dd>
             <span>{{financialMove.observation}}</span>
         </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.financialMove.appointment">Appointment</span></dt>
+        <dd>
+            <div *ngIf="financialMove.appointmentId">
+                <a [routerLink]="['/appointment-my-suffix', financialMove.appointmentId]">{{financialMove.appointmentId}}</a>
+            </div>
+        </dd>
     </dl>
 
     <button type="submit"

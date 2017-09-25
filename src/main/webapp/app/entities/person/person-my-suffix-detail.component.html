@@ -40,36 +40,6 @@
         <dd>
             <span>{{person.isPatient}}</span>
         </dd>
-        <dt><span jhiTranslate="dentistApplicationApp.person.anamnesis">Anamnesis</span></dt>
-        <dd>
-            <div *ngIf="person.anamnesisId">
-                <a [routerLink]="['/anamnesis-my-suffix', person.anamnesisId]">{{person.anamnesisId}}</a>
-            </div>
-        </dd>
-        <dt><span jhiTranslate="dentistApplicationApp.person.dentist">Dentist</span></dt>
-        <dd>
-            <div *ngIf="person.dentistId">
-                <a [routerLink]="['/appointment-my-suffix', person.dentistId]">{{person.dentistId}}</a>
-            </div>
-        </dd>
-        <dt><span jhiTranslate="dentistApplicationApp.person.patient">Patient</span></dt>
-        <dd>
-            <div *ngIf="person.patientId">
-                <a [routerLink]="['/appointment-my-suffix', person.patientId]">{{person.patientId}}</a>
-            </div>
-        </dd>
-        <dt><span jhiTranslate="dentistApplicationApp.person.employee">Employee</span></dt>
-        <dd>
-            <div *ngIf="person.employeeId">
-                <a [routerLink]="['/appointment-my-suffix', person.employeeId]">{{person.employeeId}}</a>
-            </div>
-        </dd>
-        <dt><span jhiTranslate="dentistApplicationApp.person.person">Person</span></dt>
-        <dd>
-            <div *ngIf="person.personId">
-                <a [routerLink]="['/person-address-my-suffix', person.personId]">{{person.personId}}</a>
-            </div>
-        </dd>
     </dl>
 
     <button type="submit"

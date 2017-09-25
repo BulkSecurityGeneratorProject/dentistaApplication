@@ -25,6 +25,10 @@ public class Anamnesis implements Serializable {
     @Column(name = "description")
     private String description;
 
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Person patient;
+
     // jhipster-needle-entity-add-field - Jhipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -45,6 +49,19 @@ public class Anamnesis implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Person getPatient() {
+        return patient;
+    }
+
+    public Anamnesis patient(Person person) {
+        this.patient = person;
+        return this;
+    }
+
+    public void setPatient(Person person) {
+        this.patient = person;
     }
     // jhipster-needle-entity-add-getters-setters - Jhipster will add getters and setters here, do not remove
 

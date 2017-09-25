@@ -14,16 +14,22 @@
                 <a [routerLink]="['/payment-method-my-suffix', appointment.paymentMethodId]">{{appointment.paymentMethodId}}</a>
             </div>
         </dd>
-        <dt><span jhiTranslate="dentistApplicationApp.appointment.financialMove">Financial Move</span></dt>
+        <dt><span jhiTranslate="dentistApplicationApp.appointment.dentist">Dentist</span></dt>
         <dd>
-            <div *ngIf="appointment.financialMoveId">
-                <a [routerLink]="['/financial-move-my-suffix', appointment.financialMoveId]">{{appointment.financialMoveId}}</a>
+            <div *ngIf="appointment.dentistId">
+                <a [routerLink]="['/person-my-suffix', appointment.dentistId]">{{appointment.dentistId}}</a>
             </div>
         </dd>
-        <dt><span jhiTranslate="dentistApplicationApp.appointment.appointment">Appointment</span></dt>
+        <dt><span jhiTranslate="dentistApplicationApp.appointment.patient">Patient</span></dt>
         <dd>
-            <div *ngIf="appointment.appointmentId">
-                <a [routerLink]="['/appointment-item-my-suffix', appointment.appointmentId]">{{appointment.appointmentId}}</a>
+            <div *ngIf="appointment.patientId">
+                <a [routerLink]="['/person-my-suffix', appointment.patientId]">{{appointment.patientId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.appointment.employee">Employee</span></dt>
+        <dd>
+            <div *ngIf="appointment.employeeId">
+                <a [routerLink]="['/person-my-suffix', appointment.employeeId]">{{appointment.employeeId}}</a>
             </div>
         </dd>
     </dl>

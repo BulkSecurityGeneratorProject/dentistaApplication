@@ -12,11 +12,6 @@ export class PersonMySuffix implements BaseEntity {
         public isEmployee?: boolean,
         public isDentist?: boolean,
         public isPatient?: boolean,
-        public anamnesisId?: number,
-        public dentistId?: number,
-        public patientId?: number,
-        public employeeId?: number,
-        public personId?: number,
     ) {
         this.isEmployee = false;
         this.isDentist = false;

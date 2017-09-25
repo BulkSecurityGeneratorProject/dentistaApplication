@@ -18,7 +18,8 @@
             "previouBalance": "Previou Balance",
             "currentBalance": "Current Balance",
             "moveDate": "Move Date",
-            "observation": "Observation"
+            "observation": "Observation",
+            "appointment": "Appointment"
         }
     }
 }

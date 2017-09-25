@@ -23,12 +23,7 @@
             "hireDate": "Hire Date",
             "isEmployee": "Is Employee",
             "isDentist": "Is Dentist",
-            "isPatient": "Is Patient",
-            "anamnesis": "Anamnesis",
-            "dentist": "Dentist",
-            "patient": "Patient",
-            "employee": "Employee",
-            "person": "Person"
+            "isPatient": "Is Patient"
         }
     }
 }

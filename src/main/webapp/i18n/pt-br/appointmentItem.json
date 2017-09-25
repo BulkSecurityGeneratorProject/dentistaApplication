@@ -15,7 +15,9 @@
             "detail": {
                 "title": "Appointment Item"
             },
-            "item": "Item"
+            "item": "Item",
+            "appointment": "Appointment",
+            "procedure": "Procedure"
         }
     }
 }

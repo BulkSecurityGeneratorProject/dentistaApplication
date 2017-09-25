@@ -2,6 +2,8 @@ package com.mycompany.myapp.service.dto;
 
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -12,6 +14,10 @@ public class AppointmentItemDTO implements Serializable {
     private Long id;
 
     private String item;
+
+    private Long appointmentId;
+
+    private Long procedureId;
 
     public Long getId() {
         return id;
@@ -27,6 +33,22 @@ public class AppointmentItemDTO implements Serializable {
 
     public void setItem(String item) {
         this.item = item;
+    }
+
+    public Long getAppointmentId() {
+        return appointmentId;
+    }
+
+    public void setAppointmentId(Long appointmentId) {
+        this.appointmentId = appointmentId;
+    }
+
+    public Long getProcedureId() {
+        return procedureId;
+    }
+
+    public void setProcedureId(Long procedureId) {
+        this.procedureId = procedureId;
     }
 
     @Override

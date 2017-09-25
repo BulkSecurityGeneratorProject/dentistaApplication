@@ -46,6 +46,7 @@ export class PersonAddressMySuffix implements BaseEntity {
         public neighborhood?: string,
         public complement?: string,
         public type?: LogradouroType,
+        public personId?: number,
     ) {
     }
 }
