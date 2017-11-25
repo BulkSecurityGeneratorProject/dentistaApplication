@@ -15,7 +15,7 @@
             "detail": {
                 "title": "Financial Move"
             },
-            "previouBalance": "Previou Balance",
+            "previouBalance": "Previous Balance",
             "currentBalance": "Current Balance",
             "moveDate": "Move Date",
             "observation": "Observation"

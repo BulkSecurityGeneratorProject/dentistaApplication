@@ -1,6 +1,6 @@
 {
     "home": {
-        "title": "Welcome to the Dentista TCC",
+        "title": "Welcome to the GD",
         "subtitle": "Log on",
         "logged": {
             "message": "You are logged in as user \"{{username}}\"."

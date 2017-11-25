@@ -4,10 +4,10 @@
         "http": {
             "400": "Bad request.",
             "403": "Você não tem autorização para acessar esta página.",
-            "405": "The HTTP verb you used is not supported for this URL.",
-            "500": "Internal server error."
+            "405": "Método não permitido.",
+            "500": "Erro interno :(."
         },
-        "concurrencyFailure": "Another user modified this data at the same time as you. Your changes were rejected.",
-        "validation": "Validation error on the server."
+        "concurrencyFailure": "Outro usuário modificou esse dado ao mesmo tempo que você. Suas mudanças serão rejeitadas",
+        "validation": "Erro de validação no servidor."
     }
 }

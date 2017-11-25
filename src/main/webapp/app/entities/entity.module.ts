@@ -6,6 +6,8 @@ import { DentistApplicationAppointmentModule } from './appointment/appointment.m
 import { DentistApplicationAppointmentItemModule } from './appointment-item/appointment-item.module';
 import { DentistApplicationProcedureModule } from './procedure/procedure.module';
 import { DentistApplicationAnamnesisModule } from './anamnesis/anamnesis.module';
+import { DentistApplicationPaymentMethodModule } from './payment-method/payment-method.module';
+import { DentistApplicationFinancialMoveModule } from './financial-move/financial-move.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -16,6 +18,8 @@ import { DentistApplicationAnamnesisModule } from './anamnesis/anamnesis.module'
         DentistApplicationAppointmentItemModule,
         DentistApplicationProcedureModule,
         DentistApplicationAnamnesisModule,
+        DentistApplicationPaymentMethodModule,
+        DentistApplicationFinancialMoveModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

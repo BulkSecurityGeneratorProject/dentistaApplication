@@ -1,6 +1,6 @@
 {
     "home": {
-        "title": "Bem vindo ao Dentista TCC",
+        "title": "Bem vindo ao GD",
         "subtitle": "Prossiga com o login",
         "logged": {
             "message": "Você está logado como \"{{username}}\"."

@@ -1,18 +1,24 @@
 {
     "global": {
-        "title": "DentistApplication",
+        "title": "GD",
         "browsehappy": "Você está usando um navegador <strong>desatualizado</strong>. Favor <a href=\"http://browsehappy.com/?locale=pt_BR\">atualizar o seu navegador</a> para ter uma experiência melhor.",
+        "boolean": {
+            "true": "sim",
+            "false": "não"
+        },
         "menu": {
             "home": "Início",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entidades",
-                "person": "Person",
-                "personAddress": "Person Address",
-                "appointment": "Appointment",
-                "appointmentItem": "Appointment Item",
-                "procedure": "Procedure",
+                "person": "Pessoa",
+                "personAddress": "Endereço",
+                "appointment": "Agendamento",
+                "appointmentItem": "Item de Agendamento",
+                "procedure": "Procedimento",
                 "anamnesis": "Anamnesis",
+                "paymentMethod": "Forma de Pagamento",
+                "financialMove": "Movimentações Financeiras",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

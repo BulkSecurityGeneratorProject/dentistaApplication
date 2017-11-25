@@ -19,11 +19,11 @@
             "phone1": "Phone 1",
             "phone2": "Phone 2",
             "email": "Email",
-            "cpf": "Cpf",
+            "cpf": "CPF",
             "hireDate": "Hire Date",
-            "isEmployee": "Is Employee",
-            "isDentist": "Is Dentist",
-            "isPatient": "Is Patient"
+            "isEmployee": "Is Employee?",
+            "isDentist": "Is Dentist?",
+            "isPatient": "Is Patient?"
         }
     }
 }

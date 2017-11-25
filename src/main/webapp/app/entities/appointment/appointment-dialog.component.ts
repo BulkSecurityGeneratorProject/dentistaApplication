@@ -9,6 +9,8 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Appointment } from './appointment.model';
 import { AppointmentPopupService } from './appointment-popup.service';
 import { AppointmentService } from './appointment.service';
+import { PaymentMethod, PaymentMethodService } from '../payment-method';
+import { FinancialMove, FinancialMoveService } from '../financial-move';
 import { Person, PersonService } from '../person';
 import { ResponseWrapper } from '../../shared';
 

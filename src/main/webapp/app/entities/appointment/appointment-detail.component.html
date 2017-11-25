@@ -11,13 +11,13 @@
         <dt><span jhiTranslate="dentistApplicationApp.appointment.paymentMethod">Payment Method</span></dt>
         <dd>
             <div *ngIf="appointment.paymentMethodId">
-                <a [routerLink]="['/payment-method-my-suffix', appointment.paymentMethodId]">{{appointment.paymentMethodId}}</a>
+                <a [routerLink]="['/payment-method', appointment.paymentMethodId]">{{appointment.paymentMethodId}}</a>
             </div>
         </dd>
         <dt><span jhiTranslate="dentistApplicationApp.appointment.financialMove">Financial Move</span></dt>
         <dd>
             <div *ngIf="appointment.financialMoveId">
-                <a [routerLink]="['/financial-move-my-suffix', appointment.financialMoveId]">{{appointment.financialMoveId}}</a>
+                <a [routerLink]="['/financial-move', appointment.financialMoveId]">{{appointment.financialMoveId}}</a>
             </div>
         </dd>
         <dt><span jhiTranslate="dentistApplicationApp.appointment.dentist">Dentist</span></dt>

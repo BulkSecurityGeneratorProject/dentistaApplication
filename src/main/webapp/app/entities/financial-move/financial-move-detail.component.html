@@ -1,0 +1,37 @@
+
+<div *ngIf="financialMove">
+    <h2><span jhiTranslate="dentistApplicationApp.financialMove.detail.title">Financial Move</span> {{financialMove.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dentistApplicationApp.financialMove.previouBalance">Previou Balance</span></dt>
+        <dd>
+            <span>{{financialMove.previouBalance}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.financialMove.currentBalance">Current Balance</span></dt>
+        <dd>
+            <span>{{financialMove.currentBalance}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.financialMove.moveDate">Move Date</span></dt>
+        <dd>
+            <span>{{financialMove.moveDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.financialMove.observation">Observation</span></dt>
+        <dd>
+            <span>{{financialMove.observation}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'financial-move/'+ financialMove.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
