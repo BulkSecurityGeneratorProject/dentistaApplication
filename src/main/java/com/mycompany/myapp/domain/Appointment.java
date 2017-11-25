@@ -30,6 +30,10 @@ public class Appointment implements Serializable {
     @JoinColumn(unique = true)
     private PaymentMethod paymentMethod;
 
+    @OneToOne
+    @JoinColumn(unique = true)
+    private FinancialMove financialMove;
+
     @ManyToOne
     private Person dentist;
 
@@ -72,6 +76,19 @@ public class Appointment implements Serializable {
 
     public void setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
+    }
+
+    public FinancialMove getFinancialMove() {
+        return financialMove;
+    }
+
+    public Appointment financialMove(FinancialMove financialMove) {
+        this.financialMove = financialMove;
+        return this;
+    }
+
+    public void setFinancialMove(FinancialMove financialMove) {
+        this.financialMove = financialMove;
     }
 
     public Person getDentist() {

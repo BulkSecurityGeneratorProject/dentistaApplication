@@ -2,7 +2,6 @@ package com.mycompany.myapp.service.dto;
 
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -14,7 +13,7 @@ public class ProcedureDTO implements Serializable {
 
     private String description;
 
-    private BigDecimal value;
+    private Double value;
 
     public Long getId() {
         return id;
@@ -32,11 +31,11 @@ public class ProcedureDTO implements Serializable {
         this.description = description;
     }
 
-    public BigDecimal getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(BigDecimal value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 

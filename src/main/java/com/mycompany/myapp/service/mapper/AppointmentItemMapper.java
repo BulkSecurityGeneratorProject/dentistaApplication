@@ -14,6 +14,7 @@ public interface AppointmentItemMapper extends EntityMapper <AppointmentItemDTO,
     @Mapping(source = "appointment.id", target = "appointmentId")
 
     @Mapping(source = "procedure.id", target = "procedureId")
+    @Mapping(source = "procedure.description", target = "procedureDescription")
     AppointmentItemDTO toDto(AppointmentItem appointmentItem); 
 
     @Mapping(source = "appointmentId", target = "appointment")

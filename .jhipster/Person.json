@@ -46,6 +46,5 @@
     "entityTableName": "person",
     "dto": "mapstruct",
     "pagination": "pagination",
-    "service": "serviceImpl",
-    "angularJSSuffix": "mySuffix"
+    "service": "serviceImpl"
 }

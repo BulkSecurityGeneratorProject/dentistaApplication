@@ -2,12 +2,10 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "one-to-one",
+            "relationshipType": "many-to-one",
             "relationshipName": "patient",
             "otherEntityName": "person",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "anamnesis"
+            "otherEntityField": "fullName"
         }
     ],
     "fields": [
@@ -20,6 +18,5 @@
     "entityTableName": "anamnesis",
     "dto": "mapstruct",
     "pagination": "pagination",
-    "service": "serviceImpl",
-    "angularJSSuffix": "mySuffix"
+    "service": "serviceImpl"
 }

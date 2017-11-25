@@ -5,7 +5,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -26,8 +25,8 @@ public class Procedure implements Serializable {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "jhi_value", precision=10, scale=2)
-    private BigDecimal value;
+    @Column(name = "jhi_value")
+    private Double value;
 
     // jhipster-needle-entity-add-field - Jhipster will add fields here, do not remove
     public Long getId() {
@@ -51,16 +50,16 @@ public class Procedure implements Serializable {
         this.description = description;
     }
 
-    public BigDecimal getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public Procedure value(BigDecimal value) {
+    public Procedure value(Double value) {
         this.value = value;
         return this;
     }
 
-    public void setValue(BigDecimal value) {
+    public void setValue(Double value) {
         this.value = value;
     }
     // jhipster-needle-entity-add-getters-setters - Jhipster will add getters and setters here, do not remove

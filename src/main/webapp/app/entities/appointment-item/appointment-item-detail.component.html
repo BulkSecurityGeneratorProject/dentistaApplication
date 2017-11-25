@@ -1,0 +1,37 @@
+
+<div *ngIf="appointmentItem">
+    <h2><span jhiTranslate="dentistApplicationApp.appointmentItem.detail.title">Appointment Item</span> {{appointmentItem.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dentistApplicationApp.appointmentItem.item">Item</span></dt>
+        <dd>
+            <span>{{appointmentItem.item}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.appointmentItem.appointment">Appointment</span></dt>
+        <dd>
+            <div *ngIf="appointmentItem.appointmentId">
+                <a [routerLink]="['/appointment', appointmentItem.appointmentId]">{{appointmentItem.appointmentId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.appointmentItem.procedure">Procedure</span></dt>
+        <dd>
+            <div *ngIf="appointmentItem.procedureId">
+                <a [routerLink]="['/procedure', appointmentItem.procedureId]">{{appointmentItem.procedureDescription}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'appointment-item/'+ appointmentItem.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -10,22 +10,30 @@
             "otherEntityRelationshipName": "appointment"
         },
         {
+            "relationshipType": "one-to-one",
+            "relationshipName": "financialMove",
+            "otherEntityName": "financialMove",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "appointment"
+        },
+        {
             "relationshipType": "many-to-one",
             "relationshipName": "dentist",
             "otherEntityName": "person",
-            "otherEntityField": "id"
+            "otherEntityField": "fullName"
         },
         {
             "relationshipType": "many-to-one",
             "relationshipName": "patient",
             "otherEntityName": "person",
-            "otherEntityField": "id"
+            "otherEntityField": "fullName"
         },
         {
             "relationshipType": "many-to-one",
             "relationshipName": "employee",
             "otherEntityName": "person",
-            "otherEntityField": "id"
+            "otherEntityField": "fullName"
         }
     ],
     "fields": [
@@ -38,6 +46,5 @@
     "entityTableName": "appointment",
     "dto": "mapstruct",
     "pagination": "pagination",
-    "service": "serviceImpl",
-    "angularJSSuffix": "mySuffix"
+    "service": "serviceImpl"
 }

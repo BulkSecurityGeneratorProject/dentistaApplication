@@ -19,6 +19,8 @@ public class AppointmentItemDTO implements Serializable {
 
     private Long procedureId;
 
+    private String procedureDescription;
+
     public Long getId() {
         return id;
     }
@@ -49,6 +51,14 @@ public class AppointmentItemDTO implements Serializable {
 
     public void setProcedureId(Long procedureId) {
         this.procedureId = procedureId;
+    }
+
+    public String getProcedureDescription() {
+        return procedureDescription;
+    }
+
+    public void setProcedureDescription(String procedureDescription) {
+        this.procedureDescription = procedureDescription;
     }
 
     @Override

@@ -1,23 +1,14 @@
 {
     "fluentMethods": true,
-    "relationships": [
-        {
-            "relationshipType": "one-to-one",
-            "relationshipName": "appointment",
-            "otherEntityName": "appointment",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "financialMove"
-        }
-    ],
+    "relationships": [],
     "fields": [
         {
             "fieldName": "previouBalance",
-            "fieldType": "BigDecimal"
+            "fieldType": "Double"
         },
         {
             "fieldName": "currentBalance",
-            "fieldType": "BigDecimal"
+            "fieldType": "Double"
         },
         {
             "fieldName": "moveDate",
@@ -32,6 +23,5 @@
     "entityTableName": "financial_move",
     "dto": "mapstruct",
     "pagination": "pagination",
-    "service": "serviceImpl",
-    "angularJSSuffix": "mySuffix"
+    "service": "serviceImpl"
 }

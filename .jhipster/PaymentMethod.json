@@ -11,6 +11,5 @@
     "entityTableName": "payment_method",
     "dto": "mapstruct",
     "pagination": "pagination",
-    "service": "serviceImpl",
-    "angularJSSuffix": "mySuffix"
+    "service": "serviceImpl"
 }

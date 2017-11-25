@@ -17,6 +17,8 @@ public class AnamnesisDTO implements Serializable {
 
     private Long patientId;
 
+    private String patientFullName;
+
     public Long getId() {
         return id;
     }
@@ -39,6 +41,14 @@ public class AnamnesisDTO implements Serializable {
 
     public void setPatientId(Long personId) {
         this.patientId = personId;
+    }
+
+    public String getPatientFullName() {
+        return patientFullName;
+    }
+
+    public void setPatientFullName(String personFullName) {
+        this.patientFullName = personFullName;
     }
 
     @Override

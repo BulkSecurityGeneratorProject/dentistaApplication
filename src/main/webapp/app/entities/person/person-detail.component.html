@@ -1,0 +1,57 @@
+
+<div *ngIf="person">
+    <h2><span jhiTranslate="dentistApplicationApp.person.detail.title">Person</span> {{person.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dentistApplicationApp.person.fullName">Full Name</span></dt>
+        <dd>
+            <span>{{person.fullName}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.person.phone1">Phone 1</span></dt>
+        <dd>
+            <span>{{person.phone1}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.person.phone2">Phone 2</span></dt>
+        <dd>
+            <span>{{person.phone2}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.person.email">Email</span></dt>
+        <dd>
+            <span>{{person.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.person.cpf">Cpf</span></dt>
+        <dd>
+            <span>{{person.cpf}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.person.hireDate">Hire Date</span></dt>
+        <dd>
+            <span>{{person.hireDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.person.isEmployee">Is Employee</span></dt>
+        <dd>
+            <span>{{person.isEmployee}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.person.isDentist">Is Dentist</span></dt>
+        <dd>
+            <span>{{person.isDentist}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.person.isPatient">Is Patient</span></dt>
+        <dd>
+            <span>{{person.isPatient}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'person/'+ person.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

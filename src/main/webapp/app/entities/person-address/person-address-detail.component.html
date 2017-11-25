@@ -1,0 +1,59 @@
+
+<div *ngIf="personAddress">
+    <h2><span jhiTranslate="dentistApplicationApp.personAddress.detail.title">Person Address</span> {{personAddress.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dentistApplicationApp.personAddress.logradouro">Logradouro</span></dt>
+        <dd>
+            <span>{{personAddress.logradouro}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.personAddress.address">Address</span></dt>
+        <dd>
+            <span>{{personAddress.address}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.personAddress.number">Number</span></dt>
+        <dd>
+            <span>{{personAddress.number}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.personAddress.state">State</span></dt>
+        <dd>
+            <span jhiTranslate="{{'dentistApplicationApp.BrazilianStates.' + personAddress.state}}">{{personAddress.state}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.personAddress.city">City</span></dt>
+        <dd>
+            <span>{{personAddress.city}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.personAddress.neighborhood">Neighborhood</span></dt>
+        <dd>
+            <span>{{personAddress.neighborhood}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.personAddress.complement">Complement</span></dt>
+        <dd>
+            <span>{{personAddress.complement}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.personAddress.type">Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'dentistApplicationApp.LogradouroType.' + personAddress.type}}">{{personAddress.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.personAddress.person">Person</span></dt>
+        <dd>
+            <div *ngIf="personAddress.personId">
+                <a [routerLink]="['/person', personAddress.personId]">{{personAddress.personFullName}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'person-address/'+ personAddress.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

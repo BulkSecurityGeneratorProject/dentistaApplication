@@ -11,7 +11,7 @@
             "relationshipType": "many-to-one",
             "relationshipName": "procedure",
             "otherEntityName": "procedure",
-            "otherEntityField": "id"
+            "otherEntityField": "description"
         }
     ],
     "fields": [
@@ -24,6 +24,5 @@
     "entityTableName": "appointment_item",
     "dto": "mapstruct",
     "pagination": "pagination",
-    "service": "serviceImpl",
-    "angularJSSuffix": "mySuffix"
+    "service": "serviceImpl"
 }

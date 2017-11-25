@@ -1,0 +1,55 @@
+
+<div *ngIf="appointment">
+    <h2><span jhiTranslate="dentistApplicationApp.appointment.detail.title">Appointment</span> {{appointment.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dentistApplicationApp.appointment.appointmentDate">Appointment Date</span></dt>
+        <dd>
+            <span>{{appointment.appointmentDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.appointment.paymentMethod">Payment Method</span></dt>
+        <dd>
+            <div *ngIf="appointment.paymentMethodId">
+                <a [routerLink]="['/payment-method-my-suffix', appointment.paymentMethodId]">{{appointment.paymentMethodId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.appointment.financialMove">Financial Move</span></dt>
+        <dd>
+            <div *ngIf="appointment.financialMoveId">
+                <a [routerLink]="['/financial-move-my-suffix', appointment.financialMoveId]">{{appointment.financialMoveId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.appointment.dentist">Dentist</span></dt>
+        <dd>
+            <div *ngIf="appointment.dentistId">
+                <a [routerLink]="['/person', appointment.dentistId]">{{appointment.dentistFullName}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.appointment.patient">Patient</span></dt>
+        <dd>
+            <div *ngIf="appointment.patientId">
+                <a [routerLink]="['/person', appointment.patientId]">{{appointment.patientFullName}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.appointment.employee">Employee</span></dt>
+        <dd>
+            <div *ngIf="appointment.employeeId">
+                <a [routerLink]="['/person', appointment.employeeId]">{{appointment.employeeFullName}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'appointment/'+ appointment.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

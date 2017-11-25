@@ -8,13 +8,12 @@
         },
         {
             "fieldName": "value",
-            "fieldType": "BigDecimal"
+            "fieldType": "Double"
         }
     ],
     "changelogDate": "20170920013124",
     "entityTableName": "procedure",
     "dto": "mapstruct",
     "pagination": "pagination",
-    "service": "serviceImpl",
-    "angularJSSuffix": "mySuffix"
+    "service": "serviceImpl"
 }

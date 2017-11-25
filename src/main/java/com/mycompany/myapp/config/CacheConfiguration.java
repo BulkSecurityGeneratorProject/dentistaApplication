@@ -49,6 +49,7 @@ public class CacheConfiguration {
             cm.createCache(com.mycompany.myapp.domain.PaymentMethod.class.getName(), jcacheConfiguration);
             cm.createCache(com.mycompany.myapp.domain.Anamnesis.class.getName(), jcacheConfiguration);
             cm.createCache(com.mycompany.myapp.domain.FinancialMove.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.Person.class.getName() + ".people", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

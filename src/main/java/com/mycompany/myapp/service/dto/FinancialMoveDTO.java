@@ -3,9 +3,6 @@ package com.mycompany.myapp.service.dto;
 
 import java.time.ZonedDateTime;
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -15,15 +12,13 @@ public class FinancialMoveDTO implements Serializable {
 
     private Long id;
 
-    private BigDecimal previouBalance;
+    private Double previouBalance;
 
-    private BigDecimal currentBalance;
+    private Double currentBalance;
 
     private ZonedDateTime moveDate;
 
     private String observation;
-
-    private Long appointmentId;
 
     public Long getId() {
         return id;
@@ -33,19 +28,19 @@ public class FinancialMoveDTO implements Serializable {
         this.id = id;
     }
 
-    public BigDecimal getPreviouBalance() {
+    public Double getPreviouBalance() {
         return previouBalance;
     }
 
-    public void setPreviouBalance(BigDecimal previouBalance) {
+    public void setPreviouBalance(Double previouBalance) {
         this.previouBalance = previouBalance;
     }
 
-    public BigDecimal getCurrentBalance() {
+    public Double getCurrentBalance() {
         return currentBalance;
     }
 
-    public void setCurrentBalance(BigDecimal currentBalance) {
+    public void setCurrentBalance(Double currentBalance) {
         this.currentBalance = currentBalance;
     }
 
@@ -63,14 +58,6 @@ public class FinancialMoveDTO implements Serializable {
 
     public void setObservation(String observation) {
         this.observation = observation;
-    }
-
-    public Long getAppointmentId() {
-        return appointmentId;
-    }
-
-    public void setAppointmentId(Long appointmentId) {
-        this.appointmentId = appointmentId;
     }
 
     @Override

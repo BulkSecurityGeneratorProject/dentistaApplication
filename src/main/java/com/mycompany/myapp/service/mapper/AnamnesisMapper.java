@@ -12,6 +12,7 @@ import org.mapstruct.*;
 public interface AnamnesisMapper extends EntityMapper <AnamnesisDTO, Anamnesis> {
 
     @Mapping(source = "patient.id", target = "patientId")
+    @Mapping(source = "patient.fullName", target = "patientFullName")
     AnamnesisDTO toDto(Anamnesis anamnesis); 
 
     @Mapping(source = "patientId", target = "patient")

@@ -5,7 +5,7 @@
             "relationshipType": "many-to-one",
             "relationshipName": "person",
             "otherEntityName": "person",
-            "otherEntityField": "id"
+            "otherEntityField": "fullName"
         }
     ],
     "fields": [
@@ -48,6 +48,5 @@
     "entityTableName": "person_address",
     "dto": "mapstruct",
     "pagination": "pagination",
-    "service": "serviceImpl",
-    "angularJSSuffix": "mySuffix"
+    "service": "serviceImpl"
 }

@@ -24,7 +24,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import java.math.BigDecimal;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -44,8 +43,8 @@ public class ProcedureResourceIntTest {
     private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
     private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
 
-    private static final BigDecimal DEFAULT_VALUE = new BigDecimal(1);
-    private static final BigDecimal UPDATED_VALUE = new BigDecimal(2);
+    private static final Double DEFAULT_VALUE = 1D;
+    private static final Double UPDATED_VALUE = 2D;
 
     @Autowired
     private ProcedureRepository procedureRepository;
@@ -152,7 +151,7 @@ public class ProcedureResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(procedure.getId().intValue())))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
-            .andExpect(jsonPath("$.[*].value").value(hasItem(DEFAULT_VALUE.intValue())));
+            .andExpect(jsonPath("$.[*].value").value(hasItem(DEFAULT_VALUE.doubleValue())));
     }
 
     @Test
@@ -167,7 +166,7 @@ public class ProcedureResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(procedure.getId().intValue()))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
-            .andExpect(jsonPath("$.value").value(DEFAULT_VALUE.intValue()));
+            .andExpect(jsonPath("$.value").value(DEFAULT_VALUE.doubleValue()));
     }
 
     @Test

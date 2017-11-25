@@ -25,8 +25,7 @@ public class Anamnesis implements Serializable {
     @Column(name = "description")
     private String description;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private Person patient;
 
     // jhipster-needle-entity-add-field - Jhipster will add fields here, do not remove

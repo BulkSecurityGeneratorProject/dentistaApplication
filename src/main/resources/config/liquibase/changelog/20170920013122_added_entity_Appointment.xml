@@ -26,6 +26,8 @@
             </column>
             <column name="payment_method_id" type="bigint">
                 <constraints unique="true" nullable="true" />
+            </column>            <column name="financial_move_id" type="bigint">
+                <constraints unique="true" nullable="true" />
             </column>
             <column name="dentist_id" type="bigint">
                 <constraints nullable="true" />

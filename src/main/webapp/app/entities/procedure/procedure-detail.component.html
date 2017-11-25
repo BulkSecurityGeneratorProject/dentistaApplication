@@ -1,0 +1,29 @@
+
+<div *ngIf="procedure">
+    <h2><span jhiTranslate="dentistApplicationApp.procedure.detail.title">Procedure</span> {{procedure.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dentistApplicationApp.procedure.description">Description</span></dt>
+        <dd>
+            <span>{{procedure.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.procedure.value">Value</span></dt>
+        <dd>
+            <span>{{procedure.value}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'procedure/'+ procedure.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

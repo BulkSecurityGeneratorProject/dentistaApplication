@@ -33,6 +33,8 @@ public class PersonAddressDTO implements Serializable {
 
     private Long personId;
 
+    private String personFullName;
+
     public Long getId() {
         return id;
     }
@@ -111,6 +113,14 @@ public class PersonAddressDTO implements Serializable {
 
     public void setPersonId(Long personId) {
         this.personId = personId;
+    }
+
+    public String getPersonFullName() {
+        return personFullName;
+    }
+
+    public void setPersonFullName(String personFullName) {
+        this.personFullName = personFullName;
     }
 
     @Override
