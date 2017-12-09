@@ -1,0 +1,95 @@
+entity Person {
+	fullName String required,
+	phone1 String,
+    phone2 String,
+    email String,
+    cpf String,
+    hireDate ZonedDateTime,
+    isEmployee Boolean,
+    isDentist Boolean,
+    isPatient Boolean
+}
+
+entity PersonAddress{
+	logradouro String,
+    address String,
+    number String, 
+    state BrazilianStates,
+    city String,
+    neighborhood String,
+    complement String,
+    type LogradouroType
+}
+
+enum LogradouroType{
+	COMMERCIAL, PERSONAL
+}
+
+enum BrazilianStates{
+	AC, AL, AM, 
+    AP, BA, CE, 
+    DF, ES, GO, 
+    MA, MG, MS, 
+    MT, PA, PB, 
+    PE, PI, PR, 
+    RJ, RN, RO, 
+    RR, RS, SC, 
+    SE, SP, TO
+}
+
+enum PersonType{
+	PATIENT, DENTIST, EMPLOYEE
+}
+
+entity Appointment{
+	appointmentDate ZonedDateTime
+}
+
+entity AppointmentItem{
+	item String
+}
+
+entity Procedure{
+	description String,
+    value Double
+}
+
+entity PaymentMethod{
+	name String
+}
+
+entity Anamnesis{
+	description String
+}
+
+entity FinancialMove{
+	previouBalance Double,
+    currentBalance Double,
+    moveDate ZonedDateTime,
+    observation String
+}
+
+relationship ManyToOne {
+	Appointment{dentist(fullName)} to Person
+    Appointment{patient(fullName)} to Person,
+    Appointment{employee(fullName)} to Person,
+    AppointmentItem{appointment} to Appointment,
+    AppointmentItem{procedure(description)} to Procedure,
+    Anamnesis{patient(fullName)} to Person,
+    PersonAddress{person(fullName)} to Person
+}
+
+
+relationship OneToOne {
+    Appointment{paymentMethod} to PaymentMethod,
+    Appointment{financialMove} to FinancialMove
+    
+}
+
+// Set pagination options
+paginate * with pagination
+
+dto * with mapstruct
+
+// Set service options to all
+service all with serviceImpl

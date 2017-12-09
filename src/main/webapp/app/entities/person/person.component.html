@@ -34,9 +34,18 @@
                 <td>{{person.phone1}}</td>
                 <td>{{person.email}}</td>
                 <td>{{person.cpf}}</td>
-                <td>{{person.isEmployee}}</td>
-                <td>{{person.isDentist}}</td>
-                <td>{{person.isPatient}}</td>
+                <td>
+                    <span class="label label-success" jhiTranslate="global.boolean.true" *ngIf="person.isEmployee">{{person.isEmployee}}</span>
+                    <span class="label label-danger" jhiTranslate="global.boolean.false" *ngIf="!person.isEmployee">{{person.isEmployee}}</span>
+                </td>
+                <td>
+                    <span class="label label-success" jhiTranslate="global.boolean.true" *ngIf="person.isDentist">{{person.isDentist}}</span>
+                    <span class="label label-danger" jhiTranslate="global.boolean.false" *ngIf="!person.isDentist">{{person.isDentist}}</span>
+                </td>
+                <td>
+                    <span class="label label-success" jhiTranslate="global.boolean.true" *ngIf="person.isPatient">{{person.isPatient}}</span>
+                    <span class="label label-danger" jhiTranslate="global.boolean.false" *ngIf="!person.isPatient">{{person.isPatient}}</span>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

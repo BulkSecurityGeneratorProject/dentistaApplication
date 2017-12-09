@@ -1,18 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 import { Router } from '@angular/router';
 
 import { Account, LoginModalService, Principal } from '../shared';
 
-import { LoginService } from '../shared/login/login.service';
-import { StateStorageService } from '../shared/auth/state-storage.service';
+import { LoginService } from '../shared';
+import { StateStorageService } from '../shared';
 
-import {CalendarComponent} from "angular2-fullcalendar/src/calendar/calendar";
+import {
+    startOfDay,
+    endOfDay,
+    subDays,
+    addDays,
+    endOfMonth,
+    isSameDay,
+    isSameMonth,
+    addHours
+} from 'date-fns';
+import { Subject } from 'rxjs/Subject';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {
+    CalendarEvent,
+    CalendarEventAction,
+    CalendarEventTimesChangedEvent
+} from 'angular-calendar';
+
+const colors: any = {
+    red: {
+        primary: '#ad2121',
+        secondary: '#FAE3E3'
+    },
+    blue: {
+        primary: '#1e90ff',
+        secondary: '#D1E8FF'
+    },
+    yellow: {
+        primary: '#e3bc08',
+        secondary: '#FDF1BA'
+    }
+};
 
 @Component({
     selector: 'jhi-home',
     templateUrl: './home.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: [
         'home.css'
     ]
@@ -27,15 +59,126 @@ export class HomeComponent implements OnInit {
     username: string;
     credentials: any;
 
+    @ViewChild('modalContent') modalContent: TemplateRef<any>;
+
+    view = 'day';
+
+    viewDate: Date = new Date();
+
+    modalData: {
+        action: string;
+        event: CalendarEvent;
+    };
+
+    actions: CalendarEventAction[] = [
+        {
+            label: '<i class="fa fa-fw fa-pencil"></i>',
+            onClick: ({ event }: { event: CalendarEvent }): void => {
+                this.handleEvent('Edited', event);
+            }
+        },
+        {
+            label: '<i class="fa fa-fw fa-times"></i>',
+            onClick: ({ event }: { event: CalendarEvent }): void => {
+                this.events = this.events.filter((iEvent) => iEvent !== event);
+                this.handleEvent('Deleted', event);
+            }
+        }
+    ];
+
+    refresh: Subject<any> = new Subject();
+
+    events: CalendarEvent[] = [
+        {
+            start: subDays(startOfDay(new Date()), 1),
+            end: addDays(new Date(), 1),
+            title: 'A 3 day event',
+            color: colors.red,
+            actions: this.actions
+        },
+        {
+            start: startOfDay(new Date()),
+            title: 'An event with no end date',
+            color: colors.yellow,
+            actions: this.actions
+        },
+        {
+            start: subDays(endOfMonth(new Date()), 3),
+            end: addDays(endOfMonth(new Date()), 3),
+            title: 'A long event that spans 2 months',
+            color: colors.blue
+        },
+        {
+            start: addHours(startOfDay(new Date()), 2),
+            end: new Date(),
+            title: 'A draggable and resizable event',
+            color: colors.yellow,
+            actions: this.actions,
+            resizable: {
+                beforeStart: true,
+                afterEnd: true
+            },
+            draggable: true
+        }
+    ];
+
+    activeDayIsOpen = true;
+
     constructor(
         private principal: Principal,
         private loginModalService: LoginModalService,
         private eventManager: JhiEventManager,
         private loginService: LoginService,
         private stateStorageService: StateStorageService,
-        private router: Router
+        private router: Router,
+        private modal: NgbModal
     ) {
         this.credentials = {};
+    }
+
+    dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
+        if (isSameMonth(date, this.viewDate)) {
+            if (
+                (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||
+                events.length === 0
+            ) {
+                this.activeDayIsOpen = false;
+            } else {
+                this.activeDayIsOpen = true;
+                this.viewDate = date;
+            }
+        }
+    }
+
+    eventTimesChanged({
+                          event,
+                          newStart,
+                          newEnd
+                      }: CalendarEventTimesChangedEvent): void {
+        event.start = newStart;
+        event.end = newEnd;
+        this.handleEvent('Dropped or resized', event);
+        this.refresh.next();
+    }
+
+    handleEvent(action: string, event: CalendarEvent): void {
+        this.modalData = { event, action };
+        this.modal.open(this.modalContent, { size: 'lg' });
+    }
+
+    addEvent(): void {
+        this.events.push({
+            title: 'New event',
+            start: startOfDay(new Date()),
+            end: endOfDay(new Date()),
+            color: colors.red,
+            draggable: true,
+            resizable: {
+                beforeStart: true,
+                afterEnd: true
+            }
+        });
+        this.refresh.next();
     }
 
     cancel() {
@@ -102,68 +245,4 @@ export class HomeComponent implements OnInit {
     isAuthenticated() {
         return this.principal.isAuthenticated();
     }
-
-    calendarOptions:Object = {
-        height: 'parent',
-        fixedWeekCount : false,
-        defaultDate: '2016-09-12',
-        editable: true,
-        eventLimit: true, // allow "more" link when too many events
-        events: [
-          {
-            title: 'All Day Event',
-            start: '2016-09-01'
-          },
-          {
-            title: 'Long Event',
-            start: '2016-09-07',
-            end: '2016-09-10'
-          },
-          {
-            id: 999,
-            title: 'Repeating Event',
-            start: '2016-09-09T16:00:00'
-          },
-          {
-            id: 999,
-            title: 'Repeating Event',
-            start: '2016-09-16T16:00:00'
-          },
-          {
-            title: 'Conference',
-            start: '2016-09-11',
-            end: '2016-09-13'
-          },
-          {
-            title: 'Meeting',
-            start: '2016-09-12T10:30:00',
-            end: '2016-09-12T12:30:00'
-          },
-          {
-            title: 'Lunch',
-            start: '2016-09-12T12:00:00'
-          },
-          {
-            title: 'Meeting',
-            start: '2016-09-12T14:30:00'
-          },
-          {
-            title: 'Happy Hour',
-            start: '2016-09-12T17:30:00'
-          },
-          {
-            title: 'Dinner',
-            start: '2016-09-12T20:00:00'
-          },
-          {
-            title: 'Birthday Party',
-            start: '2016-09-13T07:00:00'
-          },
-          {
-            title: 'Click for Google',
-            url: 'http://google.com/',
-            start: '2016-09-28'
-          }
-        ]
-      };
 }
