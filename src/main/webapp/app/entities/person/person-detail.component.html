@@ -30,15 +30,18 @@
         </dd>
         <dt><span jhiTranslate="dentistApplicationApp.person.isEmployee">Is Employee</span></dt>
         <dd>
-            <span>{{person.isEmployee}}</span>
+            <span *ngIf="person.isEmployee" jhiTranslate="global.boolean.true" class="badge badge-success">{{person.isEmployee}}</span>
+            <span *ngIf="!person.isEmployee" jhiTranslate="global.boolean.false" class="badge badge-danger">{{person.isEmployee}}</span>
         </dd>
         <dt><span jhiTranslate="dentistApplicationApp.person.isDentist">Is Dentist</span></dt>
         <dd>
-            <span>{{person.isDentist}}</span>
+            <span *ngIf="person.isDentist" jhiTranslate="global.boolean.true" class="badge badge-success">{{person.isDentist}}</span>
+            <span *ngIf="!person.isDentist" jhiTranslate="global.boolean.false" class="badge badge-danger">{{person.isDentist}}</span>
         </dd>
         <dt><span jhiTranslate="dentistApplicationApp.person.isPatient">Is Patient</span></dt>
         <dd>
-            <span>{{person.isPatient}}</span>
+            <span *ngIf="person.isPatient" jhiTranslate="global.boolean.true" class="badge badge-success">{{person.isPatient}}</span>
+            <span *ngIf="!person.isPatient" jhiTranslate="global.boolean.false" class="badge badge-danger">{{person.isPatient}}</span>
         </dd>
     </dl>
 

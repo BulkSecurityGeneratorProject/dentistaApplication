@@ -12,6 +12,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 
 /**
  * Service Implementation for managing FinancialMove.
@@ -56,6 +58,19 @@ public class FinancialMoveServiceImpl implements FinancialMoveService{
     public Page<FinancialMoveDTO> findAll(Pageable pageable) {
         log.debug("Request to get all FinancialMoves");
         return financialMoveRepository.findAll(pageable)
+            .map(financialMoveMapper::toDto);
+    }
+
+    /**
+     *  Get all the financialMoves.
+     *
+     *  @return optionalentity
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<FinancialMoveDTO> findTopByCurrentBalanceIsNotNullOrderByMoveDateDesc() {
+        log.debug("Request to get all FinancialMoves");
+        return financialMoveRepository.findTopByCurrentBalanceIsNotNullOrderByMoveDateDesc()
             .map(financialMoveMapper::toDto);
     }
 

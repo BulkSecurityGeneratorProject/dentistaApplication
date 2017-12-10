@@ -97,6 +97,20 @@ public class FinancialMoveResource {
     }
 
     /**
+     * GET  /financial-moves/lastbalance : get all the financialMoves.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of financialMoves in body
+     */
+    @GetMapping("/financial-moves/lastbalance")
+    @Timed
+    public ResponseEntity<Double> getLastBalance(@ApiParam Pageable pageable) {
+        log.debug("REST request to get a page of FinancialMoves");
+        financialMoveService.findTopByCurrentBalanceIsNotNullOrderByMoveDateDesc().ifPresent(financialMoveDTO -> new ResponseEntity<>(financialMoveDTO.getCurrentBalance(),HttpStatus.OK));
+        return new ResponseEntity<>(0D, HttpStatus.OK);
+    }
+
+    /**
      * GET  /financial-moves/:id : get the "id" financialMove.
      *
      * @param id the id of the financialMoveDTO to retrieve

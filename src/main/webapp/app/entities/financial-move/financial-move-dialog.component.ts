@@ -36,6 +36,13 @@ export class FinancialMoveDialogComponent implements OnInit {
         this.isSaving = false;
         this.appointmentService.query()
             .subscribe((res: ResponseWrapper) => { this.appointments = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+
+        if (this.financialMove.id === undefined) {
+            this.financialMoveService.queryLastFinancialMoveBalance()
+                .subscribe((res: ResponseWrapper) => { this.financialMove.previouBalance = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+
+            console.log(this.financialMove.previouBalance);
+        }
     }
 
     clear() {
