@@ -8,12 +8,8 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity Appointment and its DTO AppointmentDTO.
  */
-@Mapper(componentModel = "spring", uses = {PaymentMethodMapper.class, FinancialMoveMapper.class, PersonMapper.class, })
+@Mapper(componentModel = "spring", uses = {PersonMapper.class, PaymentMethodMapper.class, })
 public interface AppointmentMapper extends EntityMapper <AppointmentDTO, Appointment> {
-
-    @Mapping(source = "paymentMethod.id", target = "paymentMethodId")
-
-    @Mapping(source = "financialMove.id", target = "financialMoveId")
 
     @Mapping(source = "dentist.id", target = "dentistId")
     @Mapping(source = "dentist.fullName", target = "dentistFullName")
@@ -23,17 +19,18 @@ public interface AppointmentMapper extends EntityMapper <AppointmentDTO, Appoint
 
     @Mapping(source = "employee.id", target = "employeeId")
     @Mapping(source = "employee.fullName", target = "employeeFullName")
+
+    @Mapping(source = "paymentMethod.id", target = "paymentMethodId")
+    @Mapping(source = "paymentMethod.name", target = "paymentMethodName")
     AppointmentDTO toDto(Appointment appointment); 
-
-    @Mapping(source = "paymentMethodId", target = "paymentMethod")
-
-    @Mapping(source = "financialMoveId", target = "financialMove")
 
     @Mapping(source = "dentistId", target = "dentist")
 
     @Mapping(source = "patientId", target = "patient")
 
     @Mapping(source = "employeeId", target = "employee")
+
+    @Mapping(source = "paymentMethodId", target = "paymentMethod")
     Appointment toEntity(AppointmentDTO appointmentDTO); 
     default Appointment fromId(Long id) {
         if (id == null) {

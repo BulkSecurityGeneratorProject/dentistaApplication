@@ -51,11 +51,11 @@ public class FinancialMoveResourceIntTest {
     private static final Double DEFAULT_CURRENT_BALANCE = 1D;
     private static final Double UPDATED_CURRENT_BALANCE = 2D;
 
-    private static final ZonedDateTime DEFAULT_MOVE_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
-    private static final ZonedDateTime UPDATED_MOVE_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
-
     private static final String DEFAULT_OBSERVATION = "AAAAAAAAAA";
     private static final String UPDATED_OBSERVATION = "BBBBBBBBBB";
+
+    private static final ZonedDateTime DEFAULT_MOVE_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_MOVE_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
     @Autowired
     private FinancialMoveRepository financialMoveRepository;
@@ -102,8 +102,8 @@ public class FinancialMoveResourceIntTest {
         FinancialMove financialMove = new FinancialMove()
             .previouBalance(DEFAULT_PREVIOU_BALANCE)
             .currentBalance(DEFAULT_CURRENT_BALANCE)
-            .moveDate(DEFAULT_MOVE_DATE)
-            .observation(DEFAULT_OBSERVATION);
+            .observation(DEFAULT_OBSERVATION)
+            .moveDate(DEFAULT_MOVE_DATE);
         return financialMove;
     }
 
@@ -130,8 +130,8 @@ public class FinancialMoveResourceIntTest {
         FinancialMove testFinancialMove = financialMoveList.get(financialMoveList.size() - 1);
         assertThat(testFinancialMove.getPreviouBalance()).isEqualTo(DEFAULT_PREVIOU_BALANCE);
         assertThat(testFinancialMove.getCurrentBalance()).isEqualTo(DEFAULT_CURRENT_BALANCE);
-        assertThat(testFinancialMove.getMoveDate()).isEqualTo(DEFAULT_MOVE_DATE);
         assertThat(testFinancialMove.getObservation()).isEqualTo(DEFAULT_OBSERVATION);
+        assertThat(testFinancialMove.getMoveDate()).isEqualTo(DEFAULT_MOVE_DATE);
     }
 
     @Test
@@ -167,8 +167,8 @@ public class FinancialMoveResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(financialMove.getId().intValue())))
             .andExpect(jsonPath("$.[*].previouBalance").value(hasItem(DEFAULT_PREVIOU_BALANCE.doubleValue())))
             .andExpect(jsonPath("$.[*].currentBalance").value(hasItem(DEFAULT_CURRENT_BALANCE.doubleValue())))
-            .andExpect(jsonPath("$.[*].moveDate").value(hasItem(sameInstant(DEFAULT_MOVE_DATE))))
-            .andExpect(jsonPath("$.[*].observation").value(hasItem(DEFAULT_OBSERVATION.toString())));
+            .andExpect(jsonPath("$.[*].observation").value(hasItem(DEFAULT_OBSERVATION.toString())))
+            .andExpect(jsonPath("$.[*].moveDate").value(hasItem(sameInstant(DEFAULT_MOVE_DATE))));
     }
 
     @Test
@@ -184,8 +184,8 @@ public class FinancialMoveResourceIntTest {
             .andExpect(jsonPath("$.id").value(financialMove.getId().intValue()))
             .andExpect(jsonPath("$.previouBalance").value(DEFAULT_PREVIOU_BALANCE.doubleValue()))
             .andExpect(jsonPath("$.currentBalance").value(DEFAULT_CURRENT_BALANCE.doubleValue()))
-            .andExpect(jsonPath("$.moveDate").value(sameInstant(DEFAULT_MOVE_DATE)))
-            .andExpect(jsonPath("$.observation").value(DEFAULT_OBSERVATION.toString()));
+            .andExpect(jsonPath("$.observation").value(DEFAULT_OBSERVATION.toString()))
+            .andExpect(jsonPath("$.moveDate").value(sameInstant(DEFAULT_MOVE_DATE)));
     }
 
     @Test
@@ -208,8 +208,8 @@ public class FinancialMoveResourceIntTest {
         updatedFinancialMove
             .previouBalance(UPDATED_PREVIOU_BALANCE)
             .currentBalance(UPDATED_CURRENT_BALANCE)
-            .moveDate(UPDATED_MOVE_DATE)
-            .observation(UPDATED_OBSERVATION);
+            .observation(UPDATED_OBSERVATION)
+            .moveDate(UPDATED_MOVE_DATE);
         FinancialMoveDTO financialMoveDTO = financialMoveMapper.toDto(updatedFinancialMove);
 
         restFinancialMoveMockMvc.perform(put("/api/financial-moves")
@@ -223,8 +223,8 @@ public class FinancialMoveResourceIntTest {
         FinancialMove testFinancialMove = financialMoveList.get(financialMoveList.size() - 1);
         assertThat(testFinancialMove.getPreviouBalance()).isEqualTo(UPDATED_PREVIOU_BALANCE);
         assertThat(testFinancialMove.getCurrentBalance()).isEqualTo(UPDATED_CURRENT_BALANCE);
-        assertThat(testFinancialMove.getMoveDate()).isEqualTo(UPDATED_MOVE_DATE);
         assertThat(testFinancialMove.getObservation()).isEqualTo(UPDATED_OBSERVATION);
+        assertThat(testFinancialMove.getMoveDate()).isEqualTo(UPDATED_MOVE_DATE);
     }
 
     @Test

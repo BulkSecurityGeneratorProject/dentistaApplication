@@ -9,6 +9,8 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { FinancialMove } from './financial-move.model';
 import { FinancialMovePopupService } from './financial-move-popup.service';
 import { FinancialMoveService } from './financial-move.service';
+import { Appointment, AppointmentService } from '../appointment';
+import { ResponseWrapper } from '../../shared';
 
 @Component({
     selector: 'jhi-financial-move-dialog',
@@ -19,16 +21,21 @@ export class FinancialMoveDialogComponent implements OnInit {
     financialMove: FinancialMove;
     isSaving: boolean;
 
+    appointments: Appointment[];
+
     constructor(
         public activeModal: NgbActiveModal,
         private alertService: JhiAlertService,
         private financialMoveService: FinancialMoveService,
+        private appointmentService: AppointmentService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
+        this.appointmentService.query()
+            .subscribe((res: ResponseWrapper) => { this.appointments = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -63,6 +70,10 @@ export class FinancialMoveDialogComponent implements OnInit {
 
     private onError(error: any) {
         this.alertService.error(error.message, null, null);
+    }
+
+    trackAppointmentById(index: number, item: Appointment) {
+        return item.id;
     }
 }
 

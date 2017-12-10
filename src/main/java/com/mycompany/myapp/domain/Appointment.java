@@ -26,14 +26,6 @@ public class Appointment implements Serializable {
     @Column(name = "appointment_date")
     private ZonedDateTime appointmentDate;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private PaymentMethod paymentMethod;
-
-    @OneToOne
-    @JoinColumn(unique = true)
-    private FinancialMove financialMove;
-
     @ManyToOne
     private Person dentist;
 
@@ -42,6 +34,9 @@ public class Appointment implements Serializable {
 
     @ManyToOne
     private Person employee;
+
+    @ManyToOne
+    private PaymentMethod paymentMethod;
 
     // jhipster-needle-entity-add-field - Jhipster will add fields here, do not remove
     public Long getId() {
@@ -63,32 +58,6 @@ public class Appointment implements Serializable {
 
     public void setAppointmentDate(ZonedDateTime appointmentDate) {
         this.appointmentDate = appointmentDate;
-    }
-
-    public PaymentMethod getPaymentMethod() {
-        return paymentMethod;
-    }
-
-    public Appointment paymentMethod(PaymentMethod paymentMethod) {
-        this.paymentMethod = paymentMethod;
-        return this;
-    }
-
-    public void setPaymentMethod(PaymentMethod paymentMethod) {
-        this.paymentMethod = paymentMethod;
-    }
-
-    public FinancialMove getFinancialMove() {
-        return financialMove;
-    }
-
-    public Appointment financialMove(FinancialMove financialMove) {
-        this.financialMove = financialMove;
-        return this;
-    }
-
-    public void setFinancialMove(FinancialMove financialMove) {
-        this.financialMove = financialMove;
     }
 
     public Person getDentist() {
@@ -128,6 +97,19 @@ public class Appointment implements Serializable {
 
     public void setEmployee(Person person) {
         this.employee = person;
+    }
+
+    public PaymentMethod getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public Appointment paymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
+        return this;
+    }
+
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
     // jhipster-needle-entity-add-getters-setters - Jhipster will add getters and setters here, do not remove
 

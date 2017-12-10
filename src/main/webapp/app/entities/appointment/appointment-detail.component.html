@@ -8,18 +8,6 @@
         <dd>
             <span>{{appointment.appointmentDate | date:'medium'}}</span>
         </dd>
-        <dt><span jhiTranslate="dentistApplicationApp.appointment.paymentMethod">Payment Method</span></dt>
-        <dd>
-            <div *ngIf="appointment.paymentMethodId">
-                <a [routerLink]="['/payment-method', appointment.paymentMethodId]">{{appointment.paymentMethodId}}</a>
-            </div>
-        </dd>
-        <dt><span jhiTranslate="dentistApplicationApp.appointment.financialMove">Financial Move</span></dt>
-        <dd>
-            <div *ngIf="appointment.financialMoveId">
-                <a [routerLink]="['/financial-move', appointment.financialMoveId]">{{appointment.financialMoveId}}</a>
-            </div>
-        </dd>
         <dt><span jhiTranslate="dentistApplicationApp.appointment.dentist">Dentist</span></dt>
         <dd>
             <div *ngIf="appointment.dentistId">
@@ -36,6 +24,12 @@
         <dd>
             <div *ngIf="appointment.employeeId">
                 <a [routerLink]="['/person', appointment.employeeId]">{{appointment.employeeFullName}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.appointment.paymentMethod">Payment Method</span></dt>
+        <dd>
+            <div *ngIf="appointment.paymentMethodId">
+                <a [routerLink]="['/payment-method', appointment.paymentMethodId]">{{appointment.paymentMethodName}}</a>
             </div>
         </dd>
     </dl>

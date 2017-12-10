@@ -16,10 +16,6 @@ public class AppointmentDTO implements Serializable {
 
     private ZonedDateTime appointmentDate;
 
-    private Long paymentMethodId;
-
-    private Long financialMoveId;
-
     private Long dentistId;
 
     private String dentistFullName;
@@ -31,6 +27,10 @@ public class AppointmentDTO implements Serializable {
     private Long employeeId;
 
     private String employeeFullName;
+
+    private Long paymentMethodId;
+
+    private String paymentMethodName;
 
     public Long getId() {
         return id;
@@ -46,22 +46,6 @@ public class AppointmentDTO implements Serializable {
 
     public void setAppointmentDate(ZonedDateTime appointmentDate) {
         this.appointmentDate = appointmentDate;
-    }
-
-    public Long getPaymentMethodId() {
-        return paymentMethodId;
-    }
-
-    public void setPaymentMethodId(Long paymentMethodId) {
-        this.paymentMethodId = paymentMethodId;
-    }
-
-    public Long getFinancialMoveId() {
-        return financialMoveId;
-    }
-
-    public void setFinancialMoveId(Long financialMoveId) {
-        this.financialMoveId = financialMoveId;
     }
 
     public Long getDentistId() {
@@ -110,6 +94,22 @@ public class AppointmentDTO implements Serializable {
 
     public void setEmployeeFullName(String personFullName) {
         this.employeeFullName = personFullName;
+    }
+
+    public Long getPaymentMethodId() {
+        return paymentMethodId;
+    }
+
+    public void setPaymentMethodId(Long paymentMethodId) {
+        this.paymentMethodId = paymentMethodId;
+    }
+
+    public String getPaymentMethodName() {
+        return paymentMethodName;
+    }
+
+    public void setPaymentMethodName(String paymentMethodName) {
+        this.paymentMethodName = paymentMethodName;
     }
 
     @Override

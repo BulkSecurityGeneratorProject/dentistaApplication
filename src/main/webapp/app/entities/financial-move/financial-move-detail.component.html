@@ -12,13 +12,19 @@
         <dd>
             <span>{{financialMove.currentBalance}}</span>
         </dd>
+        <dt><span jhiTranslate="dentistApplicationApp.financialMove.observation">Observation</span></dt>
+        <dd>
+            <span>{{financialMove.observation}}</span>
+        </dd>
         <dt><span jhiTranslate="dentistApplicationApp.financialMove.moveDate">Move Date</span></dt>
         <dd>
             <span>{{financialMove.moveDate | date:'medium'}}</span>
         </dd>
-        <dt><span jhiTranslate="dentistApplicationApp.financialMove.observation">Observation</span></dt>
+        <dt><span jhiTranslate="dentistApplicationApp.financialMove.appointment">Appointment</span></dt>
         <dd>
-            <span>{{financialMove.observation}}</span>
+            <div *ngIf="financialMove.appointmentId">
+                <a [routerLink]="['/appointment', financialMove.appointmentId]">{{financialMove.appointmentId}}</a>
+            </div>
         </dd>
     </dl>
 

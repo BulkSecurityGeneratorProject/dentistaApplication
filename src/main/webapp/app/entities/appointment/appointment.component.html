@@ -18,11 +18,10 @@
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="appointmentDate"><span jhiTranslate="dentistApplicationApp.appointment.appointmentDate">Appointment Date</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="paymentMethodId"><span jhiTranslate="dentistApplicationApp.appointment.paymentMethod">Payment Method</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="financialMoveId"><span jhiTranslate="dentistApplicationApp.appointment.financialMove">Financial Move</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="dentistFullName"><span jhiTranslate="dentistApplicationApp.appointment.dentist">Dentist</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="patientFullName"><span jhiTranslate="dentistApplicationApp.appointment.patient">Patient</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="employeeFullName"><span jhiTranslate="dentistApplicationApp.appointment.employee">Employee</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="paymentMethodName"><span jhiTranslate="dentistApplicationApp.appointment.paymentMethod">Payment Method</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -30,16 +29,6 @@
             <tr *ngFor="let appointment of appointments ;trackBy: trackId">
                 <td><a [routerLink]="['../appointment', appointment.id ]">{{appointment.id}}</a></td>
                 <td>{{appointment.appointmentDate | date:'medium'}}</td>
-                <td>
-                    <div *ngIf="appointment.paymentMethodId">
-                        <a [routerLink]="['../payment-method', appointment.paymentMethodId  ]" >{{appointment.paymentMethodId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="appointment.financialMoveId">
-                        <a [routerLink]="['../financial-move', appointment.financialMoveId  ]" >{{appointment.financialMoveId}}</a>
-                    </div>
-                </td>
                 <td>
                     <div *ngIf="appointment.dentistId">
                         <a [routerLink]="['../person', appointment.dentistId  ]" >{{appointment.dentistFullName}}</a>
@@ -53,6 +42,11 @@
                 <td>
                     <div *ngIf="appointment.employeeId">
                         <a [routerLink]="['../person', appointment.employeeId  ]" >{{appointment.employeeFullName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="appointment.paymentMethodId">
+                        <a [routerLink]="['../payment-method', appointment.paymentMethodId  ]" >{{appointment.paymentMethodName}}</a>
                     </div>
                 </td>
                 <td class="text-right">

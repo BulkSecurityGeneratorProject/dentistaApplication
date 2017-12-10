@@ -16,11 +16,10 @@
                 "title": "Appointment"
             },
             "appointmentDate": "Appointment Date",
-            "paymentMethod": "Payment Method",
-            "financialMove": "Financial Move",
             "dentist": "Dentist",
             "patient": "Patient",
-            "employee": "Employee"
+            "employee": "Employee",
+            "paymentMethod": "Payment Method"
         }
     }
 }

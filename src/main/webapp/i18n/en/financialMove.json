@@ -15,10 +15,11 @@
             "detail": {
                 "title": "Financial Move"
             },
-            "previouBalance": "Previous Balance",
+            "previouBalance": "Previou Balance",
             "currentBalance": "Current Balance",
+            "observation": "Observation",
             "moveDate": "Move Date",
-            "observation": "Observation"
+            "appointment": "Appointment"
         }
     }
 }

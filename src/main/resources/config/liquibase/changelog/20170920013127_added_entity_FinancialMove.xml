@@ -29,11 +29,15 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="observation" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
             <column name="move_date" type="timestamp">
                 <constraints nullable="true" />
             </column>
 
-            <column name="observation" type="varchar(255)">
+            <column name="appointment_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 

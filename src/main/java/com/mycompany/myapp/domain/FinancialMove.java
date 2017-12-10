@@ -29,11 +29,14 @@ public class FinancialMove implements Serializable {
     @Column(name = "current_balance")
     private Double currentBalance;
 
+    @Column(name = "observation")
+    private String observation;
+
     @Column(name = "move_date")
     private ZonedDateTime moveDate;
 
-    @Column(name = "observation")
-    private String observation;
+    @ManyToOne
+    private Appointment appointment;
 
     // jhipster-needle-entity-add-field - Jhipster will add fields here, do not remove
     public Long getId() {
@@ -70,6 +73,19 @@ public class FinancialMove implements Serializable {
         this.currentBalance = currentBalance;
     }
 
+    public String getObservation() {
+        return observation;
+    }
+
+    public FinancialMove observation(String observation) {
+        this.observation = observation;
+        return this;
+    }
+
+    public void setObservation(String observation) {
+        this.observation = observation;
+    }
+
     public ZonedDateTime getMoveDate() {
         return moveDate;
     }
@@ -83,17 +99,17 @@ public class FinancialMove implements Serializable {
         this.moveDate = moveDate;
     }
 
-    public String getObservation() {
-        return observation;
+    public Appointment getAppointment() {
+        return appointment;
     }
 
-    public FinancialMove observation(String observation) {
-        this.observation = observation;
+    public FinancialMove appointment(Appointment appointment) {
+        this.appointment = appointment;
         return this;
     }
 
-    public void setObservation(String observation) {
-        this.observation = observation;
+    public void setAppointment(Appointment appointment) {
+        this.appointment = appointment;
     }
     // jhipster-needle-entity-add-getters-setters - Jhipster will add getters and setters here, do not remove
 
@@ -123,8 +139,8 @@ public class FinancialMove implements Serializable {
             "id=" + getId() +
             ", previouBalance='" + getPreviouBalance() + "'" +
             ", currentBalance='" + getCurrentBalance() + "'" +
-            ", moveDate='" + getMoveDate() + "'" +
             ", observation='" + getObservation() + "'" +
+            ", moveDate='" + getMoveDate() + "'" +
             "}";
     }
 }

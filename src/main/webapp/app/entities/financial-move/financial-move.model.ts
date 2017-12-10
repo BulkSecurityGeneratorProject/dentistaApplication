@@ -5,8 +5,9 @@ export class FinancialMove implements BaseEntity {
         public id?: number,
         public previouBalance?: number,
         public currentBalance?: number,
-        public moveDate?: any,
         public observation?: string,
+        public moveDate?: any,
+        public appointmentId?: number,
     ) {
     }
 }

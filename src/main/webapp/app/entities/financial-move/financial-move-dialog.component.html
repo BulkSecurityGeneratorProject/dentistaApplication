@@ -23,18 +23,25 @@
                 [(ngModel)]="financialMove.currentBalance"  />
         </div>
         <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dentistApplicationApp.financialMove.observation" for="field_observation">Observation</label>
+            <input type="text" class="form-control" name="observation" id="field_observation"
+                [(ngModel)]="financialMove.observation"  />
+        </div>
+        <div class="form-group">
             <label class="form-control-label" jhiTranslate="dentistApplicationApp.financialMove.moveDate" for="field_moveDate">Move Date</label>
             <div class="d-flex">
                 <input id="field_moveDate" type="datetime-local" class="form-control" name="moveDate" [(ngModel)]="financialMove.moveDate"
                   />
             </div>
         </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="dentistApplicationApp.financialMove.observation" for="field_observation">Observation</label>
-            <input type="text" class="form-control" name="observation" id="field_observation"
-                [(ngModel)]="financialMove.observation"  />
-        </div>
 
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dentistApplicationApp.financialMove.appointment" for="field_appointment">Appointment</label>
+            <select class="form-control" id="field_appointment" name="appointment" [(ngModel)]="financialMove.appointmentId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="appointmentOption.id" *ngFor="let appointmentOption of appointments; trackBy: trackAppointmentById">{{appointmentOption.id}}</option>
+            </select>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

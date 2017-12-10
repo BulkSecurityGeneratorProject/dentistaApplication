@@ -1,6 +1,13 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "appointment",
+            "otherEntityName": "appointment",
+            "otherEntityField": "id"
+        }
+    ],
     "fields": [
         {
             "fieldName": "previouBalance",
@@ -11,12 +18,12 @@
             "fieldType": "Double"
         },
         {
-            "fieldName": "moveDate",
-            "fieldType": "ZonedDateTime"
-        },
-        {
             "fieldName": "observation",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "moveDate",
+            "fieldType": "ZonedDateTime"
         }
     ],
     "changelogDate": "20170920013127",

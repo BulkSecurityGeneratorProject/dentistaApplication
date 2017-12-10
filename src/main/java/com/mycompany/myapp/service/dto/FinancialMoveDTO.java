@@ -3,6 +3,8 @@ package com.mycompany.myapp.service.dto;
 
 import java.time.ZonedDateTime;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -16,9 +18,11 @@ public class FinancialMoveDTO implements Serializable {
 
     private Double currentBalance;
 
+    private String observation;
+
     private ZonedDateTime moveDate;
 
-    private String observation;
+    private Long appointmentId;
 
     public Long getId() {
         return id;
@@ -44,6 +48,14 @@ public class FinancialMoveDTO implements Serializable {
         this.currentBalance = currentBalance;
     }
 
+    public String getObservation() {
+        return observation;
+    }
+
+    public void setObservation(String observation) {
+        this.observation = observation;
+    }
+
     public ZonedDateTime getMoveDate() {
         return moveDate;
     }
@@ -52,12 +64,12 @@ public class FinancialMoveDTO implements Serializable {
         this.moveDate = moveDate;
     }
 
-    public String getObservation() {
-        return observation;
+    public Long getAppointmentId() {
+        return appointmentId;
     }
 
-    public void setObservation(String observation) {
-        this.observation = observation;
+    public void setAppointmentId(Long appointmentId) {
+        this.appointmentId = appointmentId;
     }
 
     @Override
@@ -87,8 +99,8 @@ public class FinancialMoveDTO implements Serializable {
             "id=" + getId() +
             ", previouBalance='" + getPreviouBalance() + "'" +
             ", currentBalance='" + getCurrentBalance() + "'" +
-            ", moveDate='" + getMoveDate() + "'" +
             ", observation='" + getObservation() + "'" +
+            ", moveDate='" + getMoveDate() + "'" +
             "}";
     }
 }

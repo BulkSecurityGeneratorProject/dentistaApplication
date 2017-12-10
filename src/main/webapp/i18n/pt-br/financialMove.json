@@ -2,23 +2,24 @@
     "dentistApplicationApp": {
         "financialMove" : {
             "home": {
-                "title": "Movimentações Financeiras",
-                "createLabel": "Criar nova Movimentação Financeira",
-                "createOrEditLabel": "Criar ou editar Movimentação Financeira"
+                "title": "Financial Moves",
+                "createLabel": "Criar novo Financial Move",
+                "createOrEditLabel": "Criar ou editar Financial Move"
             },
-            "created": "Uma nova Movimentação Financeira foi criado com o identificador {{ param }}",
-            "updated": "Uma Movimentação Financeira foi atualizada com o identificador {{ param }}",
-            "deleted": "Uma Movimentação Financeira foi deletada com o identificador {{ param }}",
+            "created": "Um novo Financial Move foi criado com o identificador {{ param }}",
+            "updated": "Um Financial Move foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Financial Move foi deletado com o identificador {{ param }}",
             "delete": {
-                "question": "Tem certeza de que deseja excluir Movimentação Financeira {{ id }}?"
+                "question": "Tem certeza de que deseja excluir Financial Move {{ id }}?"
             },
             "detail": {
-                "title": "Movimentação Financeira"
+                "title": "Financial Move"
             },
-            "previouBalance": "Balanço Anterior",
-            "currentBalance": "Balanço Atual",
-            "moveDate": "Data da Movimentação",
-            "observation": "Observação"
+            "previouBalance": "Previou Balance",
+            "currentBalance": "Current Balance",
+            "observation": "Observation",
+            "moveDate": "Move Date",
+            "appointment": "Appointment"
         }
     }
 }

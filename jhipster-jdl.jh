@@ -1,6 +1,6 @@
 entity Person {
-	fullName String required,
-	phone1 String,
+    fullName String required,
+    phone1 String,
     phone2 String,
     email String,
     cpf String,
@@ -11,7 +11,7 @@ entity Person {
 }
 
 entity PersonAddress{
-	logradouro String,
+    logradouro String,
     address String,
     number String, 
     state BrazilianStates,
@@ -22,11 +22,11 @@ entity PersonAddress{
 }
 
 enum LogradouroType{
-	COMMERCIAL, PERSONAL
+    COMMERCIAL, PERSONAL
 }
 
 enum BrazilianStates{
-	AC, AL, AM, 
+    AC, AL, AM, 
     AP, BA, CE, 
     DF, ES, GO, 
     MA, MG, MS, 
@@ -38,52 +38,47 @@ enum BrazilianStates{
 }
 
 enum PersonType{
-	PATIENT, DENTIST, EMPLOYEE
+    PATIENT, DENTIST, EMPLOYEE
 }
 
 entity Appointment{
-	appointmentDate ZonedDateTime
+    appointmentDate ZonedDateTime
 }
 
 entity AppointmentItem{
-	item String
+    item String
 }
 
 entity Procedure{
-	description String,
+    description String,
     value Double
 }
 
 entity PaymentMethod{
-	name String
+    name String
 }
 
 entity Anamnesis{
-	description String
+    description String
 }
 
 entity FinancialMove{
-	previouBalance Double,
+    previouBalance Double,
     currentBalance Double,
-    moveDate ZonedDateTime,
-    observation String
+    observation String,
+    moveDate ZonedDateTime
 }
 
 relationship ManyToOne {
-	Appointment{dentist(fullName)} to Person
+    Appointment{dentist(fullName)} to Person
     Appointment{patient(fullName)} to Person,
     Appointment{employee(fullName)} to Person,
     AppointmentItem{appointment} to Appointment,
     AppointmentItem{procedure(description)} to Procedure,
     Anamnesis{patient(fullName)} to Person,
-    PersonAddress{person(fullName)} to Person
-}
-
-
-relationship OneToOne {
-    Appointment{paymentMethod} to PaymentMethod,
-    Appointment{financialMove} to FinancialMove
-    
+    PersonAddress{person(fullName)} to Person,
+    FinancialMove{appointment} to Appointment,
+    Appointment{paymentMethod(name)} to PaymentMethod
 }
 
 // Set pagination options

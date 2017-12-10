@@ -21,20 +21,6 @@
         </div>
 
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="dentistApplicationApp.appointment.paymentMethod" for="field_paymentMethod">Payment Method</label>
-            <select class="form-control" id="field_paymentMethod" name="paymentMethod" [(ngModel)]="appointment.paymentMethodId">
-                <option [ngValue]="null"></option>
-                <option [ngValue]="paymentMethodOption.id" *ngFor="let paymentMethodOption of paymentmethods; trackBy: trackPaymentMethodById">{{paymentMethodOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="dentistApplicationApp.appointment.financialMove" for="field_financialMove">Financial Move</label>
-            <select class="form-control" id="field_financialMove" name="financialMove" [(ngModel)]="appointment.financialMoveId">
-                <option [ngValue]="null"></option>
-                <option [ngValue]="financialMoveOption.id" *ngFor="let financialMoveOption of financialmoves; trackBy: trackFinancialMoveById">{{financialMoveOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
             <label class="form-control-label" jhiTranslate="dentistApplicationApp.appointment.dentist" for="field_dentist">Dentist</label>
             <select class="form-control" id="field_dentist" name="dentist" [(ngModel)]="appointment.dentistId" >
                 <option [ngValue]="null"></option>
@@ -53,6 +39,13 @@
             <select class="form-control" id="field_employee" name="employee" [(ngModel)]="appointment.employeeId" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="personOption.id" *ngFor="let personOption of people; trackBy: trackPersonById">{{personOption.fullName}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dentistApplicationApp.appointment.paymentMethod" for="field_paymentMethod">Payment Method</label>
+            <select class="form-control" id="field_paymentMethod" name="paymentMethod" [(ngModel)]="appointment.paymentMethodId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="paymentMethodOption.id" *ngFor="let paymentMethodOption of paymentmethods; trackBy: trackPaymentMethodById">{{paymentMethodOption.name}}</option>
             </select>
         </div>
     </div>

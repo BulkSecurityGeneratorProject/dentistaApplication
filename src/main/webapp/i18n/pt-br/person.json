@@ -2,28 +2,28 @@
     "dentistApplicationApp": {
         "person" : {
             "home": {
-                "title": "Pessoas",
-                "createLabel": "Criar nova Pessoa",
-                "createOrEditLabel": "Criar ou editar Pessoa"
+                "title": "People",
+                "createLabel": "Criar novo Person",
+                "createOrEditLabel": "Criar ou editar Person"
             },
-            "created": "Uma nova Pessoa foi criada com o identificador {{ param }}",
-            "updated": "Uma Pessoa foi atualizada com o identificador {{ param }}",
-            "deleted": "Uma Pessoa foi deletada com o identificador {{ param }}",
+            "created": "Um novo Person foi criado com o identificador {{ param }}",
+            "updated": "Um Person foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Person foi deletado com o identificador {{ param }}",
             "delete": {
-                "question": "Tem certeza de que deseja excluir Pessoa {{ id }}?"
+                "question": "Tem certeza de que deseja excluir Person {{ id }}?"
             },
             "detail": {
-                "title": "Pessoa"
+                "title": "Person"
             },
-            "fullName": "Nome Completo",
-            "phone1": "Telefone 1",
-            "phone2": "Telefone 2",
-            "email": "E-mail",
-            "cpf": "CPF",
-            "hireDate": "Data de Adminissão",
-            "isEmployee": "É Funcionário?",
-            "isDentist": "É Dentista?",
-            "isPatient": "É Paciente?"
+            "fullName": "Full Name",
+            "phone1": "Phone 1",
+            "phone2": "Phone 2",
+            "email": "Email",
+            "cpf": "Cpf",
+            "hireDate": "Hire Date",
+            "isEmployee": "Is Employee",
+            "isDentist": "Is Dentist",
+            "isPatient": "Is Patient"
         }
     }
 }

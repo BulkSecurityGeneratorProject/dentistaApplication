@@ -9,9 +9,8 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Appointment } from './appointment.model';
 import { AppointmentPopupService } from './appointment-popup.service';
 import { AppointmentService } from './appointment.service';
-import { PaymentMethod, PaymentMethodService } from '../payment-method';
-import { FinancialMove, FinancialMoveService } from '../financial-move';
 import { Person, PersonService } from '../person';
+import { PaymentMethod, PaymentMethodService } from '../payment-method';
 import { ResponseWrapper } from '../../shared';
 
 @Component({
@@ -23,53 +22,26 @@ export class AppointmentDialogComponent implements OnInit {
     appointment: Appointment;
     isSaving: boolean;
 
-    paymentmethods: PaymentMethod[];
-
-    financialmoves: FinancialMove[];
-
     people: Person[];
+
+    paymentmethods: PaymentMethod[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private alertService: JhiAlertService,
         private appointmentService: AppointmentService,
-        private paymentMethodService: PaymentMethodService,
-        private financialMoveService: FinancialMoveService,
         private personService: PersonService,
+        private paymentMethodService: PaymentMethodService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
-        this.paymentMethodService
-            .query({filter: 'appointment-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.appointment.paymentMethodId) {
-                    this.paymentmethods = res.json;
-                } else {
-                    this.paymentMethodService
-                        .find(this.appointment.paymentMethodId)
-                        .subscribe((subRes: PaymentMethod) => {
-                            this.paymentmethods = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
-        this.financialMoveService
-            .query({filter: 'appointment-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.appointment.financialMoveId) {
-                    this.financialmoves = res.json;
-                } else {
-                    this.financialMoveService
-                        .find(this.appointment.financialMoveId)
-                        .subscribe((subRes: FinancialMove) => {
-                            this.financialmoves = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
         this.personService.query()
             .subscribe((res: ResponseWrapper) => { this.people = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        this.paymentMethodService.query()
+            .subscribe((res: ResponseWrapper) => { this.paymentmethods = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -106,15 +78,11 @@ export class AppointmentDialogComponent implements OnInit {
         this.alertService.error(error.message, null, null);
     }
 
-    trackPaymentMethodById(index: number, item: PaymentMethod) {
-        return item.id;
-    }
-
-    trackFinancialMoveById(index: number, item: FinancialMove) {
-        return item.id;
-    }
-
     trackPersonById(index: number, item: Person) {
+        return item.id;
+    }
+
+    trackPaymentMethodById(index: number, item: PaymentMethod) {
         return item.id;
     }
 }
