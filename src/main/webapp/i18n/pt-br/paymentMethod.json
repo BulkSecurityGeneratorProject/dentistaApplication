@@ -2,20 +2,20 @@
     "dentistApplicationApp": {
         "paymentMethod" : {
             "home": {
-                "title": "Payment Methods",
-                "createLabel": "Criar novo Payment Method",
-                "createOrEditLabel": "Criar ou editar Payment Method"
+                "title": "Formas de Pagamento",
+                "createLabel": "Criar nova Forma de Pagamento",
+                "createOrEditLabel": "Criar ou editar Forma de Pagamento"
             },
-            "created": "Um novo Payment Method foi criado com o identificador {{ param }}",
-            "updated": "Um Payment Method foi atualizado com o identificador {{ param }}",
-            "deleted": "Um Payment Method foi deletado com o identificador {{ param }}",
+            "created": "Uma nova Forma de Pagamento foi criada com o identificador {{ param }}",
+            "updated": "Uma Forma de Pagamento foi atualizada com o identificador {{ param }}",
+            "deleted": "Uma Forma de Pagamento foi deletada com o identificador {{ param }}",
             "delete": {
-                "question": "Tem certeza de que deseja excluir Payment Method {{ id }}?"
+                "question": "Tem certeza de que deseja excluir Forma de Pagamento {{ id }}?"
             },
             "detail": {
-                "title": "Payment Method"
+                "title": "Forma de Pagamento"
             },
-            "name": "Name"
+            "name": "Nome"
         }
     }
 }

@@ -2,21 +2,21 @@
     "dentistApplicationApp": {
         "anamnesis" : {
             "home": {
-                "title": "Anamneses",
-                "createLabel": "Criar novo Anamnesis",
-                "createOrEditLabel": "Criar ou editar Anamnesis"
+                "title": "Anamnese ",
+                "createLabel": "Criar nova Anamnese ",
+                "createOrEditLabel": "Criar ou editar Anamnese "
             },
-            "created": "Um novo Anamnesis foi criado com o identificador {{ param }}",
-            "updated": "Um Anamnesis foi atualizado com o identificador {{ param }}",
-            "deleted": "Um Anamnesis foi deletado com o identificador {{ param }}",
+            "created": "Uma nova Anamnese  foi criado com o identificador {{ param }}",
+            "updated": "Uma Anamnese foi atualizada com o identificador {{ param }}",
+            "deleted": "Uma Anamnese foi deletada com o identificador {{ param }}",
             "delete": {
-                "question": "Tem certeza de que deseja excluir Anamnesis {{ id }}?"
+                "question": "Tem certeza de que deseja excluir Anamnese {{ id }}?"
             },
             "detail": {
-                "title": "Anamnesis"
+                "title": "Anamnese"
             },
-            "description": "Description",
-            "patient": "Patient"
+            "description": "Descrição",
+            "patient": "Paciente"
         }
     }
 }

@@ -2,8 +2,8 @@
     "dentistApplicationApp": {
         "LogradouroType" : {
             "null": "",
-            "COMMERCIAL": "COMMERCIAL",
-            "PERSONAL": "PERSONAL"
+            "COMMERCIAL": "COMERCIAL",
+            "PERSONAL": "PESSOAL"
         }
     }
 }

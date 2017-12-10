@@ -51,22 +51,22 @@
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="dentistApplicationApp.person.phone1" for="field_phone1">Phone 1</label>
             <input type="text" class="form-control" name="phone1" id="field_phone1"
-                [(ngModel)]="person.phone1"  />
+                [(ngModel)]="person.phone1" placeholder="(00) 00000-0000" />
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="dentistApplicationApp.person.phone2" for="field_phone2">Phone 2</label>
             <input type="text" class="form-control" name="phone2" id="field_phone2"
-                [(ngModel)]="person.phone2"  />
+                [(ngModel)]="person.phone2" placeholder="(00) 00000-0000" />
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="dentistApplicationApp.person.email" for="field_email">Email</label>
             <input type="text" class="form-control" name="email" id="field_email"
-                [(ngModel)]="person.email"  />
+                [(ngModel)]="person.email" placeholder="email@dominio.com" />
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="dentistApplicationApp.person.cpf" for="field_cpf">Cpf</label>
             <input type="text" name="cpf" id="field_cpf"
-                [(ngModel)]="person.cpf" (blur)="validateCPF()" class="form-control"/>
+                [(ngModel)]="person.cpf" class="form-control" placeholder="000.000.000-00"/>
         </div>
         <div *ngIf="person.isEmployee || person.isDentist" class="form-control">
             <label class="form-control-label" jhiTranslate="dentistApplicationApp.person.hireDate" for="field_hireDate">Hire Date</label>

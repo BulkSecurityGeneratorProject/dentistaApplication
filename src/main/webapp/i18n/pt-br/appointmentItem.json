@@ -2,22 +2,22 @@
     "dentistApplicationApp": {
         "appointmentItem" : {
             "home": {
-                "title": "Appointment Items",
-                "createLabel": "Criar novo Appointment Item",
-                "createOrEditLabel": "Criar ou editar Appointment Item"
+                "title": "Itens de Agendamento",
+                "createLabel": "Criar novo Item de Agendamento",
+                "createOrEditLabel": "Criar ou editar Item de Agendamento"
             },
-            "created": "Um novo Appointment Item foi criado com o identificador {{ param }}",
-            "updated": "Um Appointment Item foi atualizado com o identificador {{ param }}",
-            "deleted": "Um Appointment Item foi deletado com o identificador {{ param }}",
+            "created": "Um novo Item de Agendamento foi criado com o identificador {{ param }}",
+            "updated": "Um Item de Agendamento foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Item de Agendamento foi deletado com o identificador {{ param }}",
             "delete": {
-                "question": "Tem certeza de que deseja excluir Appointment Item {{ id }}?"
+                "question": "Tem certeza de que deseja excluir Item de Agendamento {{ id }}?"
             },
             "detail": {
-                "title": "Appointment Item"
+                "title": "Item de Agendamento"
             },
             "item": "Item",
-            "appointment": "Appointment",
-            "procedure": "Procedure"
+            "appointment": "Atendimento",
+            "procedure": "Procedimento"
         }
     }
 }

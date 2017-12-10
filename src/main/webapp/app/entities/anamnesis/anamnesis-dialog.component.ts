@@ -34,7 +34,7 @@ export class AnamnesisDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.personService.query()
+        this.personService.queryByPatient()
             .subscribe((res: ResponseWrapper) => { this.people = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 

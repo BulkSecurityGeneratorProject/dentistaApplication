@@ -19,13 +19,6 @@
                 "anamnesis": "Anamnesis",
                 "paymentMethod": "Forma de Pagamento",
                 "financialMove": "Movimentações Financeiras",
-                "appointment": "Appointment",
-                "paymentMethod": "Payment Method",
-                "financialMove": "Financial Move",
-                "appointmentItem": "Appointment Item",
-                "person": "Person",
-                "personAddress": "Person Address",
-                "procedure": "Procedure",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
