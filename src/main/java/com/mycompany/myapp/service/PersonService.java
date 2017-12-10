@@ -26,6 +26,30 @@ public interface PersonService {
     Page<PersonDTO> findAll(Pageable pageable);
 
     /**
+     *  Get all the dentists.
+     *
+     *  @param pageable the pagination information
+     *  @return the list of entities
+     */
+    Page<PersonDTO> findAllByIsDentistIsTrue(Pageable pageable);
+
+    /**
+     *  Get all the patients.
+     *
+     *  @param pageable the pagination information
+     *  @return the list of entities
+     */
+    Page<PersonDTO> findAllByIsPatientIsTrue(Pageable pageable);
+
+    /**
+     *  Get all the employees.
+     *
+     *  @param pageable the pagination information
+     *  @return the list of entities
+     */
+    Page<PersonDTO> findAllByIsEmployeeIsTrue(Pageable pageable);
+
+    /**
      *  Get the "id" person.
      *
      *  @param id the id of the entity

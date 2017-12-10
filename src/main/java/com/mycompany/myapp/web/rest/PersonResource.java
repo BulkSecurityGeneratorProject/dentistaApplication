@@ -98,6 +98,51 @@ public class PersonResource {
     }
 
     /**
+     * GET  /peopleDentist : get all dentists.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of people in body
+     */
+    @GetMapping("/peopleDentist")
+    @Timed
+    public ResponseEntity<List<PersonDTO>> getAllDentist(@ApiParam Pageable pageable) {
+        log.debug("REST request to get a page of People");
+        Page<PersonDTO> page = personService.findAllByIsDentistIsTrue(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/peopleDentist");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    /**
+     * GET  /peopleDentist : get all patients.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of people in body
+     */
+    @GetMapping("/peoplePatient")
+    @Timed
+    public ResponseEntity<List<PersonDTO>> getAllPatient(@ApiParam Pageable pageable) {
+        log.debug("REST request to get a page of People");
+        Page<PersonDTO> page = personService.findAllByIsPatientIsTrue(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/peoplePatient");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    /**
+     * GET  /peopleDentist : get all employees.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of people in body
+     */
+    @GetMapping("/peopleEmployee")
+    @Timed
+    public ResponseEntity<List<PersonDTO>> getAllEmployee(@ApiParam Pageable pageable) {
+        log.debug("REST request to get a page of People");
+        Page<PersonDTO> page = personService.findAllByIsEmployeeIsTrue(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/peopleEmployee");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    /**
      * GET  /people/:id : get the "id" person.
      *
      * @param id the id of the personDTO to retrieve

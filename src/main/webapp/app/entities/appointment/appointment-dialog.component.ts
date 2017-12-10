@@ -23,6 +23,9 @@ export class AppointmentDialogComponent implements OnInit {
     isSaving: boolean;
 
     people: Person[];
+    dentist: Person[];
+    patient: Person[];
+    employee: Person[];
 
     paymentmethods: PaymentMethod[];
 
@@ -38,8 +41,19 @@ export class AppointmentDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
+
         this.personService.query()
             .subscribe((res: ResponseWrapper) => { this.people = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+
+        this.personService.queryByDentist()
+            .subscribe((res: ResponseWrapper) => { this.dentist = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+
+        this.personService.queryByPatient()
+            .subscribe((res: ResponseWrapper) => { this.patient = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+
+        this.personService.queryByEmployee()
+            .subscribe((res: ResponseWrapper) => { this.employee = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+
         this.paymentMethodService.query()
             .subscribe((res: ResponseWrapper) => { this.paymentmethods = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }

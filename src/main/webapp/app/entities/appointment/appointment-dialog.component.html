@@ -24,21 +24,21 @@
             <label class="form-control-label" jhiTranslate="dentistApplicationApp.appointment.dentist" for="field_dentist">Dentist</label>
             <select class="form-control" id="field_dentist" name="dentist" [(ngModel)]="appointment.dentistId" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="personOption.id" *ngFor="let personOption of people; trackBy: trackPersonById">{{personOption.fullName}}</option>
+                <option [ngValue]="personOption.id" *ngFor="let personOption of dentist; trackBy: trackPersonById">{{personOption.fullName}}</option>
             </select>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="dentistApplicationApp.appointment.patient" for="field_patient">Patient</label>
             <select class="form-control" id="field_patient" name="patient" [(ngModel)]="appointment.patientId" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="personOption.id" *ngFor="let personOption of people; trackBy: trackPersonById">{{personOption.fullName}}</option>
+                <option [ngValue]="personOption.id" *ngFor="let personOption of patient; trackBy: trackPersonById">{{personOption.fullName}}</option>
             </select>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="dentistApplicationApp.appointment.employee" for="field_employee">Employee</label>
             <select class="form-control" id="field_employee" name="employee" [(ngModel)]="appointment.employeeId" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="personOption.id" *ngFor="let personOption of people; trackBy: trackPersonById">{{personOption.fullName}}</option>
+                <option [ngValue]="personOption.id" *ngFor="let personOption of employee; trackBy: trackPersonById">{{personOption.fullName}}</option>
             </select>
         </div>
         <div class="form-group">

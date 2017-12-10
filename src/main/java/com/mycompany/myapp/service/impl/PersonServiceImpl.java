@@ -60,6 +60,48 @@ public class PersonServiceImpl implements PersonService{
     }
 
     /**
+     *  Get all the dentists.
+     *
+     *  @param pageable the pagination information
+     *  @return the list of entities
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public Page<PersonDTO> findAllByIsDentistIsTrue(Pageable pageable) {
+        log.debug("Request to get all People");
+        return personRepository.findAllByIsDentistIsTrue(pageable)
+            .map(personMapper::toDto);
+    }
+
+    /**
+     *  Get all the patients.
+     *
+     *  @param pageable the pagination information
+     *  @return the list of entities
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public Page<PersonDTO> findAllByIsPatientIsTrue(Pageable pageable) {
+        log.debug("Request to get all People");
+        return personRepository.findAllByIsPatientIsTrue(pageable)
+            .map(personMapper::toDto);
+    }
+
+    /**
+     *  Get all the employees.
+     *
+     *  @param pageable the pagination information
+     *  @return the list of entities
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public Page<PersonDTO> findAllByIsEmployeeIsTrue(Pageable pageable) {
+        log.debug("Request to get all People");
+        return personRepository.findAllByIsEmployeeIsTrue(pageable)
+            .map(personMapper::toDto);
+    }
+
+    /**
      *  Get one person by id.
      *
      *  @param id the id of the entity

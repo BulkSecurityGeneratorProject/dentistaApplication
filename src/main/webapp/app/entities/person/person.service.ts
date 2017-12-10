@@ -47,6 +47,24 @@ export class PersonService {
             .map((res: Response) => this.convertResponse(res));
     }
 
+    queryByDentist(req?: any): Observable<ResponseWrapper> {
+        const options = createRequestOption(req);
+        return this.http.get('/api/peopleDentist', options)
+            .map((res: Response) => this.convertResponse(res));
+    }
+
+    queryByPatient(req?: any): Observable<ResponseWrapper> {
+        const options = createRequestOption(req);
+        return this.http.get('/api/peoplePatient', options)
+            .map((res: Response) => this.convertResponse(res));
+    }
+
+    queryByEmployee(req?: any): Observable<ResponseWrapper> {
+        const options = createRequestOption(req);
+        return this.http.get('/api/peopleEmployee', options)
+            .map((res: Response) => this.convertResponse(res));
+    }
+
     delete(id: number): Observable<Response> {
         return this.http.delete(`${this.resourceUrl}/${id}`);
     }
