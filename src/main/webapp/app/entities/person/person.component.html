@@ -22,7 +22,6 @@
             <th jhiSortBy="phone2"><span jhiTranslate="dentistApplicationApp.person.phone2">Phone 2</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="email"><span jhiTranslate="dentistApplicationApp.person.email">Email</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="cpf"><span jhiTranslate="dentistApplicationApp.person.cpf">Cpf</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="hireDate"><span jhiTranslate="dentistApplicationApp.person.hireDate">Hire Date</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="isEmployee"><span jhiTranslate="dentistApplicationApp.person.isEmployee">Is Employee</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="isDentist"><span jhiTranslate="dentistApplicationApp.person.isDentist">Is Dentist</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="isPatient"><span jhiTranslate="dentistApplicationApp.person.isPatient">Is Patient</span> <span class="fa fa-sort"></span></th>
@@ -37,10 +36,18 @@
                 <td>{{person.phone2}}</td>
                 <td>{{person.email}}</td>
                 <td>{{person.cpf}}</td>
-                <td>{{person.hireDate | date:'medium'}}</td>
-                <td>{{person.isEmployee}}</td>
-                <td>{{person.isDentist}}</td>
-                <td>{{person.isPatient}}</td>
+                <td>
+                    <span *ngIf="person.isEmployee" jhiTranslate="global.boolean.true" class="badge badge-success">{{person.isEmployee}}</span>
+                    <span *ngIf="!person.isEmployee" jhiTranslate="global.boolean.false" class="badge badge-danger">{{person.isEmployee}}</span>
+                </td>
+                <td>
+                    <span *ngIf="person.isDentist" jhiTranslate="global.boolean.true" class="badge badge-success">{{person.isDentist}}</span>
+                    <span *ngIf="!person.isDentist" jhiTranslate="global.boolean.false" class="badge badge-danger">{{person.isDentist}}</span>
+                </td>
+                <td>
+                    <span *ngIf="person.isPatient" jhiTranslate="global.boolean.true" class="badge badge-success">{{person.isPatient}}</span>
+                    <span *ngIf="!person.isPatient" jhiTranslate="global.boolean.false" class="badge badge-danger">{{person.isPatient}}</span>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

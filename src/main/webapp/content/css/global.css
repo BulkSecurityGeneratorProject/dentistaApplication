@@ -196,3 +196,7 @@ ui bootstrap tweaks
 .card.jh-card.no-radius{
     border-radius: 0;
 }
+
+.red-border{
+    border-color: #d9534f;
+}

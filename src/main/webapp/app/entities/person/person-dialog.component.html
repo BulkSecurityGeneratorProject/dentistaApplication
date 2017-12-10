@@ -23,6 +23,31 @@
                 </small>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dentistApplicationApp.person.isEmployee" for="field_isEmployee">Is Employee</label>
+                    <input type="checkbox" class="form-control" name="isEmployee" id="field_isEmployee"
+                           [(ngModel)]="person.isEmployee"  />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dentistApplicationApp.person.isDentist" for="field_isDentist">Is Dentist</label>
+                    <input type="checkbox" class="form-control" name="isDentist" id="field_isDentist"
+                           [(ngModel)]="person.isDentist"  />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="dentistApplicationApp.person.isPatient" for="field_isPatient">Is Patient</label>
+                    <input type="checkbox" class="form-control" name="isPatient" id="field_isPatient"
+                           [(ngModel)]="person.isPatient"  />
+                </div>
+            </div>
+        </div>
+
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="dentistApplicationApp.person.phone1" for="field_phone1">Phone 1</label>
             <input type="text" class="form-control" name="phone1" id="field_phone1"
@@ -41,29 +66,16 @@
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="dentistApplicationApp.person.cpf" for="field_cpf">Cpf</label>
             <input type="text" class="form-control" name="cpf" id="field_cpf"
-                [(ngModel)]="person.cpf"  />
+                [(ngModel)]="person.cpf" (blur)="validateCPF()"  />
         </div>
-        <div class="form-group">
+        <div *ngIf="person.isEmployee || person.isDentist" class="form-control">
             <label class="form-control-label" jhiTranslate="dentistApplicationApp.person.hireDate" for="field_hireDate">Hire Date</label>
             <div class="d-flex">
-                <input id="field_hireDate" type="datetime-local" class="form-control" name="hireDate" [(ngModel)]="person.hireDate"
-                  />
+                <input id="field_hireDate" type="datetime-local"
+                       class="form-control" name="hireDate"
+                       [(ngModel)]="person.hireDate" [ngClass]="{'form-control red-border': hasError,
+                       'form-control' : !hasError}" />
             </div>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="dentistApplicationApp.person.isEmployee" for="field_isEmployee">Is Employee</label>
-            <input type="checkbox" class="form-control" name="isEmployee" id="field_isEmployee"
-                [(ngModel)]="person.isEmployee"  />
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="dentistApplicationApp.person.isDentist" for="field_isDentist">Is Dentist</label>
-            <input type="checkbox" class="form-control" name="isDentist" id="field_isDentist"
-                [(ngModel)]="person.isDentist"  />
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="dentistApplicationApp.person.isPatient" for="field_isPatient">Is Patient</label>
-            <input type="checkbox" class="form-control" name="isPatient" id="field_isPatient"
-                [(ngModel)]="person.isPatient"  />
         </div>
 
     </div>
